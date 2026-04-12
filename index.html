@@ -78,13 +78,16 @@
           <nav
             class="top-nav__tabs tabs"
             data-i18n-attr="aria-label|nav.aria"
-            aria-label="Mode kalkulator"
+            aria-label="Mode kalkulator dan panduan"
           >
             <button type="button" class="tab tab--active" data-panel="mining" aria-selected="true">
               <span data-i18n="tab.mining">Mining</span>
             </button>
             <button type="button" class="tab" data-panel="fishing" aria-selected="false">
               <span data-i18n="tab.fishing">Fishing</span>
+            </button>
+            <button type="button" class="tab" data-panel="guide" aria-selected="false">
+              <span data-i18n="tab.guide">Guide</span>
             </button>
           </nav>
         </div>
@@ -127,6 +130,81 @@
             Masukkan jumlah tiap jenis ikan; total dihitung otomatis.
           </p>
           <div id="fishing-rows" class="calc-grid"></div>
+        </section>
+
+        <section id="panel-guide" class="panel" hidden aria-labelledby="guide-heading">
+          <div class="panel-head">
+            <h2 id="guide-heading" class="panel-title" data-i18n="guide.title">Guide</h2>
+          </div>
+          <nav
+            class="guide-subtabs"
+            role="tablist"
+            data-i18n-attr="aria-label|guide.subtabsAria"
+            aria-label="Pilih topik panduan"
+          >
+            <button
+              type="button"
+              class="guide-subtab guide-subtab--active"
+              role="tab"
+              data-guide-sub="nether"
+              aria-selected="true"
+            >
+              <span data-i18n="guide.subtab.nether">Nether</span>
+            </button>
+            <button
+              type="button"
+              class="guide-subtab"
+              role="tab"
+              data-guide-sub="mining"
+              disabled
+              aria-selected="false"
+              aria-disabled="true"
+              data-i18n-attr="title|guide.subtabDisabledTitle"
+              title="Segera"
+            >
+              <span data-i18n="guide.subtab.mining">Mining</span>
+            </button>
+            <button
+              type="button"
+              class="guide-subtab"
+              role="tab"
+              data-guide-sub="fishing"
+              disabled
+              aria-selected="false"
+              aria-disabled="true"
+              data-i18n-attr="title|guide.subtabDisabledTitle"
+              title="Segera"
+            >
+              <span data-i18n="guide.subtab.fishing">Fishing</span>
+            </button>
+          </nav>
+
+          <div
+            id="guide-view-nether"
+            class="guide-subpanel guide-subpanel--active"
+            role="tabpanel"
+            data-guide-panel="nether"
+          >
+            <div id="guide-nether-root"></div>
+          </div>
+          <div
+            id="guide-view-mining"
+            class="guide-subpanel"
+            hidden
+            role="tabpanel"
+            data-guide-panel="mining"
+          >
+            <p class="panel-desc muted guide-soon" data-i18n="guide.soon">Segera hadir.</p>
+          </div>
+          <div
+            id="guide-view-fishing"
+            class="guide-subpanel"
+            hidden
+            role="tabpanel"
+            data-guide-panel="fishing"
+          >
+            <p class="panel-desc muted guide-soon" data-i18n="guide.soon">Segera hadir.</p>
+          </div>
         </section>
       </main>
 
@@ -178,6 +256,7 @@
     <script src="js/i18n.js"></script>
     <script src="js/mining.js"></script>
     <script src="js/fishing.js"></script>
+    <script src="js/guide.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

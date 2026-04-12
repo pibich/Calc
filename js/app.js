@@ -5,6 +5,7 @@
   const fishingTotal = document.getElementById("fishing-total");
   const panelMining = document.getElementById("panel-mining");
   const panelFishing = document.getElementById("panel-fishing");
+  const panelGuide = document.getElementById("panel-guide");
 
   function formatGems(n) {
     const loc = typeof PWI18N !== "undefined" && PWI18N.getLang() === "en" ? "en-US" : "id-ID";
@@ -431,6 +432,29 @@
         panelFishing.classList.toggle("panel--active", show);
         panelFishing.hidden = !show;
       }
+      if (panelGuide) {
+        const show = panel === "guide";
+        panelGuide.classList.toggle("panel--active", show);
+        panelGuide.hidden = !show;
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-guide-sub]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.disabled) return;
+      const sub = btn.dataset.guideSub;
+      if (!sub) return;
+      document.querySelectorAll("[data-guide-sub]").forEach((b) => {
+        const on = b === btn;
+        b.classList.toggle("guide-subtab--active", on);
+        b.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      document.querySelectorAll("[data-guide-panel]").forEach((p) => {
+        const show = p.getAttribute("data-guide-panel") === sub;
+        p.classList.toggle("guide-subpanel--active", show);
+        p.hidden = !show;
+      });
     });
   });
 

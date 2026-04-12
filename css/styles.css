@@ -166,7 +166,8 @@ body {
 
 .tabs {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 0.5rem;
   align-items: center;
 }
@@ -249,6 +250,10 @@ body {
 }
 
 #panel-fishing .panel-title {
+  margin-bottom: 0.55rem;
+}
+
+#panel-guide .panel-title {
   margin-bottom: 0.55rem;
 }
 
@@ -709,6 +714,231 @@ body {
     flex: 0 0 2.75rem;
     min-height: 2.75rem;
   }
+}
+
+/* ——— Guide (Nether wearables) ——— */
+.guide-subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.guide-subtab {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.12s, color 0.12s, border-color 0.12s, opacity 0.12s;
+}
+
+.guide-subtab:hover:not(:disabled) {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.guide-subtab--active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.guide-subtab:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.guide-subpanel {
+  padding-top: 0.25rem;
+}
+
+.guide-soon {
+  margin-top: 0.25rem;
+}
+
+#panel-guide {
+  min-width: 0;
+}
+
+.guide-nether-tiers-wrap {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.guide-nether-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.guide-nether-tier {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  padding: clamp(0.55rem, 2vw, 0.75rem) clamp(0.5rem, 2.5vw, 0.85rem)
+    clamp(0.65rem, 2vw, 0.85rem);
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--tier-accent) 38%, var(--border));
+  background: color-mix(in srgb, var(--tier-accent) 9%, var(--surface));
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.guide-nether-tier-head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--tier-accent) 28%, var(--border));
+}
+
+.guide-nether-tier-badge {
+  flex-shrink: 0;
+  width: clamp(2rem, 5.5vw, 2.45rem);
+  height: clamp(2rem, 5.5vw, 2.45rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.85rem, 2.8vw, 1rem);
+  font-weight: 700;
+  color: var(--bg);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--tier-accent) 92%, #fff) 0%,
+    var(--tier-accent) 100%
+  );
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.guide-nether-tier-titles {
+  min-width: 0;
+  flex: 1;
+  text-align: left;
+}
+
+.guide-nether-tier-title {
+  margin: 0;
+  font-size: clamp(0.72rem, 2.5vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.guide-nether-tier-sub {
+  margin: 0.15rem 0 0;
+  font-size: clamp(0.62rem, 2.2vw, 0.7rem);
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.25;
+}
+
+.guide-nether-tier-body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.4rem, 2vw, 0.55rem);
+  flex: 1;
+  min-height: 0;
+}
+
+.guide-nether-empty {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.guide-wear-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.55rem, 3vw, 1rem);
+  padding: clamp(0.45rem, 2.2vw, 0.65rem) clamp(0.4rem, 2vw, 0.65rem);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--tier-accent) 6%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--tier-accent) 20%, var(--border));
+}
+
+.guide-wear-icon {
+  flex-shrink: 0;
+  width: clamp(3.35rem, 18vw, 4.75rem);
+  height: clamp(3.35rem, 18vw, 4.75rem);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--tier-accent) 30%, var(--border));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+}
+
+.guide-wear-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: clamp(3px, 1vw, 6px);
+}
+
+.guide-wear-icon--placeholder {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.85rem, 3.5vw, 1.15rem);
+  font-weight: 700;
+  color: var(--tier-accent);
+}
+
+.guide-wear-slot {
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 0.1rem;
+  padding: 0.14rem 0.4rem;
+  font-size: clamp(0.58rem, 2vw, 0.65rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  color: color-mix(in srgb, var(--tier-accent) 85%, var(--text));
+  background: color-mix(in srgb, var(--tier-accent) 14%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--tier-accent) 35%, var(--border));
+}
+
+.guide-wear-body {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.guide-wear-name {
+  font-size: clamp(0.76rem, 2.8vw, 0.92rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.guide-wear-level {
+  font-size: clamp(0.66rem, 2.4vw, 0.78rem);
+  font-weight: 500;
+  font-family: "JetBrains Mono", monospace;
+  color: var(--text-muted);
 }
 
 /* Halaman 404 (Netlify) */
