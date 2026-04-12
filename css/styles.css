@@ -20,27 +20,44 @@
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: "DM Sans", system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .app {
   max-width: min(100%, 58rem);
   margin: 0 auto;
-  padding: 1.75rem clamp(1rem, 4vw, 2rem) 3rem;
+  padding-top: calc(1.75rem + env(safe-area-inset-top, 0px));
+  padding-right: max(1rem, calc(env(safe-area-inset-right, 0px) + 0.75rem));
+  padding-bottom: calc(3rem + env(safe-area-inset-bottom, 0px));
+  padding-left: max(1rem, calc(env(safe-area-inset-left, 0px) + 0.75rem));
 }
 
 .top-nav {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1rem;
   padding-bottom: 1.2rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--border);
+  row-gap: 0.85rem;
+}
+
+.brand-block {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: min(100%, 22rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
 }
 
 .brand-heading {
@@ -48,10 +65,40 @@ body {
   line-height: 0;
   flex: 0 1 auto;
   min-width: 0;
-  max-width: 55%;
+  max-width: 100%;
   box-sizing: border-box;
   padding: 0;
   background: none;
+}
+
+.dev-notice {
+  margin: 0;
+  max-width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.dev-notice__icon {
+  flex-shrink: 0;
+  display: flex;
+  margin-top: 0.12em;
+  color: #f59e0b;
+}
+
+.dev-notice__icon svg {
+  display: block;
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.dev-notice__text {
+  min-width: 0;
 }
 
 .brand-logo {
@@ -70,10 +117,12 @@ body {
 
 .top-nav-actions {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.55rem 0.65rem;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
+  min-width: 0;
   margin-left: auto;
 }
 
@@ -97,6 +146,7 @@ body {
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
+  touch-action: manipulation;
   transition: background 0.12s, color 0.12s;
 }
 
@@ -132,13 +182,15 @@ body {
 
   .lang-btn {
     padding: 0.35rem 0.45rem;
-    min-width: 1.95rem;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
     font-size: 0.68rem;
   }
 
   .tab {
     padding: 0.45rem 0.85rem;
     font-size: 0.9rem;
+    min-height: 2.75rem;
   }
 }
 
@@ -152,6 +204,7 @@ body {
   background: var(--surface);
   color: var(--text-muted);
   cursor: pointer;
+  touch-action: manipulation;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
@@ -387,8 +440,8 @@ body {
 }
 
 .mining-stepper-btn {
-  flex: 0 0 2rem;
-  min-height: 2.05rem;
+  flex: 0 0 2.15rem;
+  min-height: 2.15rem;
   padding: 0;
   border: none;
   background: var(--surface-hover);
@@ -396,6 +449,7 @@ body {
   font-size: 1.2rem;
   line-height: 1;
   cursor: pointer;
+  touch-action: manipulation;
   transition: background 0.12s;
 }
 
@@ -418,7 +472,7 @@ body {
   min-width: 0;
   width: 100%;
   margin: 0;
-  padding: 0.2rem 0.15rem;
+  padding: 0.35rem 0.2rem;
   border: none;
   border-left: 1px solid var(--border);
   border-right: 1px solid var(--border);
@@ -522,6 +576,139 @@ body {
   height: 1.55rem;
   object-fit: contain;
   pointer-events: none;
+}
+
+/* ——— Mobile & narrow screens ——— */
+@media (max-width: 40rem) {
+  .mining-cols-wrap {
+    overflow-x: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .mining-cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem 0.5rem;
+    min-width: 0;
+  }
+
+  .mining-cols .mining-cell:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .mining-banner-inner {
+    padding-inline: clamp(0.65rem, 4vw, 2.15rem);
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0.2rem;
+  }
+
+  .mining-banner-label {
+    font-size: clamp(0.62rem, 3.2vw, 0.8rem);
+    line-height: 1.25;
+    text-align: center;
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .mining-banner-value {
+    font-size: clamp(1rem, 4vw, 1.15rem);
+  }
+
+  .panel-title {
+    font-size: clamp(1.1rem, 4.2vw, 1.35rem);
+  }
+
+  .total-inline .total-value {
+    font-size: clamp(1.15rem, 4.8vw, 1.45rem);
+  }
+
+  .panel-desc {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+  }
+}
+
+@media (max-width: 36rem) {
+  .top-nav {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .brand-block {
+    max-width: 100%;
+  }
+
+  .top-nav-actions {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between;
+  }
+
+  .lang-btn {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+
+  .tab {
+    min-height: 2.75rem;
+  }
+
+  .tabs {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .panel-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .panel-head .panel-title {
+    flex: none;
+  }
+
+  .total-inline {
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 26rem) {
+  .mining-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mining-cols .mining-cell:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+
+  .mining-cell {
+    padding: 0.55rem 0.35rem 0.6rem;
+  }
+
+  .mining-cell-label {
+    font-size: 0.72rem;
+    min-height: 2.35em;
+  }
+
+  .mining-cell-rate {
+    font-size: 0.68rem;
+  }
+
+  .mining-stepper {
+    max-width: 100%;
+  }
+
+  .mining-stepper-input {
+    font-size: 1rem;
+    min-height: 2.75rem;
+  }
+
+  .mining-stepper-btn {
+    flex: 0 0 2.75rem;
+    min-height: 2.75rem;
+  }
 }
 
 /* Halaman 404 (Netlify) */

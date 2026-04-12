@@ -5,6 +5,8 @@
     en: {
       "page.title": "Pixel Worlds Tools",
       "nav.aria": "Calculator mode",
+      "nav.devNotice":
+        "Website under development — fishing gem values are still being processed.",
       "nav.langAria": "Language",
       "tab.mining": "Mining",
       "tab.fishing": "Fishing",
@@ -13,8 +15,11 @@
       "mining.totalAria": "Mining total gems",
       "mining.desc":
         "Enter the amount of each type; the total is calculated automatically.",
-      "fishing.title": "Fishing",
-      "fishing.placeholder": "This section will be added later.",
+      "fishing.title": "Fishing Gems",
+      "fishing.totalLabel": "Total gems",
+      "fishing.totalAria": "Fishing total gems",
+      "fishing.desc":
+        "Enter the amount of each fish type; the total is calculated automatically.",
       "footer.disclaimer":
         "This site is not affiliated with, endorsed by, or operated by Pixel Worlds, Kukouri Mobile Entertainment, or any other official party. It is an independent fan-made project by a player to help with in-game calculations.",
       "footer.creditHtml": "Credit: <span class=\"footer-author\">PIBI</span>",
@@ -26,6 +31,18 @@
       "banner.sapphire": "SAPPHIRE GEMS",
       "banner.ruby": "RUBY GEMS",
       "banner.diamond": "DIAMOND GEMS",
+      "banner.herring": "HERRING GEMS",
+      "banner.kingfish": "KINGFISH GEMS",
+      "banner.butterflyfish": "BUTTERFLYFISH GEMS",
+      "banner.goldfish": "GOLDFISH GEMS",
+      "banner.carp": "CARP GEMS",
+      "banner.acidpuffer": "ACID PUFFER GEMS",
+      "banner.tuna": "TUNA GEMS",
+      "banner.halibut": "HALIBUT GEMS",
+      "banner.seaangler": "SEA ANGLER GEMS",
+      "banner.crab": "CRAB GEMS",
+      "banner.dumbfish": "DUMBFISH GEMS",
+      "banner.piranha": "PIRANHA GEMS",
       "rate.zero": "0 gems / unit",
       "rate.each": "{n} gems / unit",
       "stepper.decrease": "Decrease quantity: {name}",
@@ -35,6 +52,8 @@
     id: {
       "page.title": "Pixel Worlds Tools",
       "nav.aria": "Mode kalkulator",
+      "nav.devNotice":
+        "Situs masih dalam pengembangan — nilai gems fishing sedang diproses.",
       "nav.langAria": "Bahasa",
       "tab.mining": "Mining",
       "tab.fishing": "Fishing",
@@ -43,8 +62,11 @@
       "mining.totalAria": "Total gems mining",
       "mining.desc":
         "Masukkan jumlah tiap jenis; total dihitung otomatis.",
-      "fishing.title": "Fishing",
-      "fishing.placeholder": "Bagian ini akan ditambahkan nanti.",
+      "fishing.title": "Fishing Gems",
+      "fishing.totalLabel": "Total gems",
+      "fishing.totalAria": "Total gems fishing",
+      "fishing.desc":
+        "Masukkan jumlah tiap jenis ikan; total dihitung otomatis.",
       "footer.disclaimer":
         "Situs ini tidak berafiliasi, didukung, atau dikelola oleh Pixel Worlds, Kukouri Mobile Entertainment, maupun pihak resmi terkait lainnya. Ini adalah proyek mandiri yang dibuat oleh pemain untuk membantu perhitungan di dalam game.",
       "footer.creditHtml": "Kredit pembuat: <span class=\"footer-author\">PIBI</span>",
@@ -56,6 +78,18 @@
       "banner.sapphire": "SAPPHIRE GEMS",
       "banner.ruby": "RUBY GEMS",
       "banner.diamond": "DIAMOND GEMS",
+      "banner.herring": "HERRING GEMS",
+      "banner.kingfish": "KINGFISH GEMS",
+      "banner.butterflyfish": "BUTTERFLYFISH GEMS",
+      "banner.goldfish": "GOLDFISH GEMS",
+      "banner.carp": "CARP GEMS",
+      "banner.acidpuffer": "ACID PUFFER GEMS",
+      "banner.tuna": "TUNA GEMS",
+      "banner.halibut": "HALIBUT GEMS",
+      "banner.seaangler": "SEA ANGLER GEMS",
+      "banner.crab": "CRAB GEMS",
+      "banner.dumbfish": "DUMBFISH GEMS",
+      "banner.piranha": "PIRANHA GEMS",
       "rate.zero": "0 gems / unit",
       "rate.each": "{n} gems / unit",
       "stepper.decrease": "Kurangi jumlah: {name}",

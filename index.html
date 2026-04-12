@@ -2,7 +2,10 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
     <meta
       name="description"
       content="Fan-made Pixel Worlds gems calculator for mining (and fishing soon). Not affiliated with the game or its publishers."
@@ -21,15 +24,31 @@
   <body>
     <div class="app">
       <header class="top-nav" role="banner">
-        <h1 class="brand-heading">
-          <img
-            class="brand-logo"
-            src="assets/pixelworldslogo.png"
-            alt="Pixel Worlds"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </h1>
+        <div class="brand-block">
+          <h1 class="brand-heading">
+            <img
+              class="brand-logo"
+              src="assets/pixelworldslogo.png"
+              alt="Pixel Worlds"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </h1>
+          <p class="dev-notice" role="status">
+            <span class="dev-notice__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="16" height="16">
+                <path
+                  fill-rule="evenodd"
+                  d="M8.485 2.495c.675-1.171 2.357-1.171 3.032 0l6.28 10.875c.666 1.154-.224 2.595-1.516 2.595H3.72c-1.292 0-2.182-1.441-1.516-2.595l6.28-10.875zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </span>
+            <span class="dev-notice__text" data-i18n="nav.devNotice">
+              Situs masih dalam pengembangan — nilai gems fishing sedang diproses.
+            </span>
+          </p>
+        </div>
         <div class="top-nav-actions">
           <div
             class="lang-toggle"
@@ -92,10 +111,22 @@
         </section>
 
         <section id="panel-fishing" class="panel" hidden aria-labelledby="fishing-heading">
-          <h2 id="fishing-heading" class="panel-title" data-i18n="fishing.title">Fishing</h2>
-          <p class="panel-desc muted" data-i18n="fishing.placeholder">
-            Bagian ini akan ditambahkan setelah mining selesai.
+          <div class="panel-head">
+            <h2 id="fishing-heading" class="panel-title" data-i18n="fishing.title">Fishing Gems</h2>
+            <div
+              class="total-inline"
+              role="group"
+              data-i18n-attr="aria-label|fishing.totalAria"
+              aria-label="Total gems fishing"
+            >
+              <span class="total-label" data-i18n="fishing.totalLabel">Total gems</span>
+              <output id="fishing-total" class="total-value" for="fishing-rows">0</output>
+            </div>
+          </div>
+          <p class="panel-desc" data-i18n="fishing.desc">
+            Masukkan jumlah tiap jenis ikan; total dihitung otomatis.
           </p>
+          <div id="fishing-rows" class="calc-grid"></div>
         </section>
       </main>
 
@@ -146,6 +177,7 @@
     </div>
     <script src="js/i18n.js"></script>
     <script src="js/mining.js"></script>
+    <script src="js/fishing.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
