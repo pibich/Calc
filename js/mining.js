@@ -37,9 +37,9 @@ const MINING_GEMSTONES = [
   { id: "ruby-medium", name: "Ruby (Medium)", gemsPerUnit: 60 },
   { id: "ruby-large", name: "Ruby (Large)", gemsPerUnit: 150 },
   { id: "ruby-huge", name: "Ruby (Huge)", gemsPerUnit: 300 },
-  { id: "diamond-tiny", name: "Diamond (Tiny)", gemsPerUnit: 0 },
-  { id: "diamond-small", name: "Diamond (Small)", gemsPerUnit: 0 },
-  { id: "diamond-medium", name: "Diamond (Medium)", gemsPerUnit: 0 },
-  { id: "diamond-large", name: "Diamond (Large)", gemsPerUnit: 0 },
-  { id: "diamond-huge", name: "Diamond (Huge)", gemsPerUnit: 0 },
+  { id: "diamond-tiny", name: "Diamond (Tiny)", gemsPerUnit: 20 },
+  { id: "diamond-small", name: "Diamond (Small)", gemsPerUnit: 40 },
+  { id: "diamond-medium", name: "Diamond (Medium)", gemsPerUnit: 80 },
+  { id: "diamond-large", name: "Diamond (Large)", gemsPerUnit: 200 },
+  { id: "diamond-huge", name: "Diamond (Huge)", gemsPerUnit: 400 }
 ];
