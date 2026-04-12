@@ -18,6 +18,9 @@
       "footer.disclaimer":
         "This site is not affiliated with, endorsed by, or operated by Pixel Worlds, Kukouri Mobile Entertainment, or any other official party. It is an independent fan-made project by a player to help with in-game calculations.",
       "footer.creditHtml": "Credit: <span class=\"footer-author\">PIBI</span>",
+      "footer.socialAria": "Creator social links",
+      "footer.youtubeAria": "PIBI on YouTube (opens in a new tab)",
+      "footer.discordAria": "SansKuy Area on Discord (opens in a new tab)",
       "banner.topaz": "TOPAZ GEMS",
       "banner.emerald": "EMERALD GEMS",
       "banner.sapphire": "SAPPHIRE GEMS",
@@ -45,6 +48,9 @@
       "footer.disclaimer":
         "Situs ini tidak berafiliasi, didukung, atau dikelola oleh Pixel Worlds, Kukouri Mobile Entertainment, maupun pihak resmi terkait lainnya. Ini adalah proyek mandiri yang dibuat oleh pemain untuk membantu perhitungan di dalam game.",
       "footer.creditHtml": "Kredit pembuat: <span class=\"footer-author\">PIBI</span>",
+      "footer.socialAria": "Tautan sosial pembuat",
+      "footer.youtubeAria": "YouTube PIBI (buka di tab baru)",
+      "footer.discordAria": "SansKuy Area di Discord (buka di tab baru)",
       "banner.topaz": "TOPAZ GEMS",
       "banner.emerald": "EMERALD GEMS",
       "banner.sapphire": "SAPPHIRE GEMS",

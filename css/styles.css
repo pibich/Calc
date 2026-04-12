@@ -485,6 +485,45 @@ body {
   letter-spacing: 0.04em;
 }
 
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 1rem 0 0;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: background 0.15s, border-color 0.15s, transform 0.12s;
+}
+
+.footer-social-link:hover {
+  background: var(--surface-hover);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  transform: translateY(-1px);
+}
+
+.footer-social-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.footer-social-icon {
+  width: 1.55rem;
+  height: 1.55rem;
+  object-fit: contain;
+  pointer-events: none;
+}
+
 /* Halaman 404 (Netlify) */
 .not-found {
   text-align: center;
