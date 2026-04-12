@@ -21,6 +21,15 @@
     5: "#f87171",
   };
 
+  /** Level minimum yang ditampilkan di subtitle tiap tier Nether. */
+  const GUIDE_NETHER_TIER_MIN_LEVEL = {
+    1: 0,
+    2: 15,
+    3: 25,
+    4: 35,
+    5: 50,
+  };
+
   /** Kunci i18n untuk badge slot (opsional pada tiap item). */
   const SLOT_I18N = {
     hats: "guide.nether.slot.hats",
@@ -192,11 +201,14 @@
 
       const title = document.createElement("h3");
       title.className = "guide-nether-tier-title";
-      title.textContent = t("guide.nether.tierName", { n: String(tier) });
+      title.textContent = t("guide.nether.netherLevelTitle", { n: String(tier) });
 
       const sub = document.createElement("p");
       sub.className = "guide-nether-tier-sub";
-      sub.textContent = t("guide.nether.tierSubtitle", { n: String(tier) });
+      const minLv = GUIDE_NETHER_TIER_MIN_LEVEL[tier];
+      sub.textContent = t("guide.nether.minimumLevel", {
+        n: String(minLv != null ? minLv : 0),
+      });
 
       titles.append(title, sub);
       head.append(badge, titles);
