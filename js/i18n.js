@@ -80,6 +80,11 @@
       "guide.nether.item.t2BrownLeatherPants": "Brown Leather Pants",
       "guide.nether.item.t2ExecutionerAxe": "Executioner Axe",
       "guide.nether.item.t2ScutumShield": "Scutum Shield",
+      "guide.nether.item.t3GeneralsLegionaryHelmet": "General's Legionary Helmet",
+      "guide.nether.item.t3LegionaryChestArmor": "Legionary Chest Armor",
+      "guide.nether.item.t3BrownLeatherPants": "Brown Leather Pants",
+      "guide.nether.item.t3Broom": "Broom",
+      "guide.nether.item.t3ScutumShield": "Scutum Shield",
     },
     id: {
       "page.title": "Pixel Worlds Tools",
@@ -159,6 +164,11 @@
       "guide.nether.item.t2BrownLeatherPants": "Brown Leather Pants",
       "guide.nether.item.t2ExecutionerAxe": "Executioner Axe",
       "guide.nether.item.t2ScutumShield": "Scutum Shield",
+      "guide.nether.item.t3GeneralsLegionaryHelmet": "General's Legionary Helmet",
+      "guide.nether.item.t3LegionaryChestArmor": "Legionary Chest Armor",
+      "guide.nether.item.t3BrownLeatherPants": "Brown Leather Pants",
+      "guide.nether.item.t3Broom": "Broom",
+      "guide.nether.item.t3ScutumShield": "Scutum Shield",
     },
   };
 

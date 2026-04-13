@@ -107,7 +107,38 @@
         icon: "assets/Scutum_Shield.webp",
       },
     ],
-    3: [],
+    3: [
+      {
+        nameKey: "guide.nether.item.t3GeneralsLegionaryHelmet",
+        level: 23,
+        slotId: "hats",
+        icon: "assets/General%2527s_Legionary_Helmet.webp",
+      },
+      {
+        nameKey: "guide.nether.item.t3LegionaryChestArmor",
+        level: 13,
+        slotId: "shirts",
+        icon: "assets/Legionary_Chest_Armor.webp",
+      },
+      {
+        nameKey: "guide.nether.item.t3BrownLeatherPants",
+        level: 13,
+        slotId: "pants",
+        icon: "assets/Brown_Leather_Pants.webp",
+      },
+      {
+        nameKey: "guide.nether.item.t3Broom",
+        level: 18,
+        slotId: "weapon",
+        icon: "assets/Broom.webp",
+      },
+      {
+        nameKey: "guide.nether.item.t3ScutumShield",
+        level: 7,
+        slotId: "shield",
+        icon: "assets/Scutum_Shield.webp",
+      },
+    ],
     4: [],
     5: [],
   };
