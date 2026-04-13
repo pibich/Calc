@@ -226,6 +226,43 @@
     const wrap = document.createElement("div");
     wrap.className = "guide-nether-tiers-wrap";
 
+    const tip = document.createElement("aside");
+    tip.className = "guide-nether-tip";
+    tip.setAttribute("role", "note");
+
+    const infoTitle = document.createElement("h4");
+    infoTitle.className = "guide-nether-tip__title";
+    infoTitle.setAttribute("data-i18n", "guide.nether.infoTitle");
+    infoTitle.textContent = t("guide.nether.infoTitle");
+
+    const overview = document.createElement("p");
+    overview.className = "guide-nether-tip__text";
+    overview.setAttribute("data-i18n", "guide.nether.overviewText");
+    overview.textContent = t("guide.nether.overviewText");
+
+    const combatTitle = document.createElement("h4");
+    combatTitle.className = "guide-nether-tip__title";
+    combatTitle.setAttribute("data-i18n", "guide.nether.combatTitle");
+    combatTitle.textContent = t("guide.nether.combatTitle");
+
+    const combatBody = document.createElement("p");
+    combatBody.className = "guide-nether-tip__text";
+    combatBody.setAttribute("data-i18n", "guide.nether.combatText");
+    combatBody.textContent = t("guide.nether.combatText");
+
+    const partyTitle = document.createElement("h4");
+    partyTitle.className = "guide-nether-tip__title";
+    partyTitle.setAttribute("data-i18n", "guide.nether.partyTipTitle");
+    partyTitle.textContent = t("guide.nether.partyTipTitle");
+
+    const partyBody = document.createElement("p");
+    partyBody.className = "guide-nether-tip__text";
+    partyBody.setAttribute("data-i18n", "guide.nether.partyTip");
+    partyBody.textContent = t("guide.nether.partyTip");
+
+    tip.append(infoTitle, overview, combatTitle, combatBody, partyTitle, partyBody);
+    wrap.appendChild(tip);
+
     const grid = document.createElement("div");
     grid.className = "guide-nether-tiers";
     grid.setAttribute("role", "list");

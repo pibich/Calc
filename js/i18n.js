@@ -23,8 +23,10 @@
         "Enter the amount of each fish type; the total is calculated automatically.",
       "footer.disclaimer":
         "This site is not affiliated with, endorsed by, or operated by Pixel Worlds, Kukouri Mobile Entertainment, or any other official party. It is an independent fan-made project by a player to help with in-game calculations.",
-      "footer.creditHtml": "Credit: <span class=\"footer-author\">PIBI</span>",
+      "footer.creditHtml":
+        "Credit: <span class=\"footer-author\">PIBI</span> — <a class=\"footer-credit-link\" href=\"https://tako.id/PIBICh\" target=\"_blank\" rel=\"noopener noreferrer\">Tako</a>",
       "footer.socialAria": "Creator social links",
+      "footer.takoAria": "PIBI on Tako (opens in a new tab)",
       "footer.youtubeAria": "PIBI on YouTube (opens in a new tab)",
       "footer.discordAria": "SansKuy Area on Discord (opens in a new tab)",
       "banner.topaz": "TOPAZ GEMS",
@@ -56,6 +58,15 @@
       "guide.subtab.fishing": "Fishing",
       "guide.subtabDisabledTitle": "Coming soon",
       "guide.soon": "This section is coming soon.",
+      "guide.nether.infoTitle": "Why Nether?",
+      "guide.nether.overviewText":
+        "Nether is great to run early on to raise your account level, along with exit gems and Nether crystals that give extra benefits. The difficulty can be significant, but the payoff is worth it.",
+      "guide.nether.combatTitle": "Enemies & elements",
+      "guide.nether.combatText":
+        "Nether enemies have specific resistances and weaknesses—learn which apply to each pull. Many resist dark and fire; favor light and water to land bigger hits. Flat damage is still shaved by their armor, so stacking critical chance pays off.",
+      "guide.nether.partyTipTitle": "Tip",
+      "guide.nether.partyTip":
+        "Forming a party is strongly recommended for Nether runs—they are faster and more efficient.",
       "guide.nether.netherLevelTitle": "Nether Level {n}",
       "guide.nether.minimumLevel": "Minimum Level {n}",
       "guide.nether.tierEmpty": "No wearables listed for this tier yet.",
@@ -108,8 +119,10 @@
         "Masukkan jumlah tiap jenis ikan; total dihitung otomatis.",
       "footer.disclaimer":
         "Situs ini tidak berafiliasi, didukung, atau dikelola oleh Pixel Worlds, Kukouri Mobile Entertainment, maupun pihak resmi terkait lainnya. Ini adalah proyek mandiri yang dibuat oleh pemain untuk membantu perhitungan di dalam game.",
-      "footer.creditHtml": "Kredit pembuat: <span class=\"footer-author\">PIBI</span>",
+      "footer.creditHtml":
+        "Kredit pembuat: <span class=\"footer-author\">PIBI</span> — <a class=\"footer-credit-link\" href=\"https://tako.id/PIBICh\" target=\"_blank\" rel=\"noopener noreferrer\">Tako</a>",
       "footer.socialAria": "Tautan sosial pembuat",
+      "footer.takoAria": "PIBI di Tako (buka di tab baru)",
       "footer.youtubeAria": "YouTube PIBI (buka di tab baru)",
       "footer.discordAria": "SansKuy Area di Discord (buka di tab baru)",
       "banner.topaz": "TOPAZ GEMS",
@@ -141,6 +154,15 @@
       "guide.subtab.fishing": "Fishing",
       "guide.subtabDisabledTitle": "Segera hadir",
       "guide.soon": "Bagian ini akan ditambahkan nanti.",
+      "guide.nether.infoTitle": "Informasi",
+      "guide.nether.overviewText":
+        "Nether sangat bagus dilakukan di awal permainan untuk meningkatkan level akun, ditambah dengan exit gems dan nether crystal yang memberikan benefit tambahan, walaupun bisa dibilang memiliki kesulitan yang lumayan, namun timbal baliknya sepadan.",
+      "guide.nether.combatTitle": "Musuh & elemen",
+      "guide.nether.combatText":
+        "Monster di Nether punya resistensi dan kelemahan masing-masing—perhatikan kombinasinya. Banyak musuh resist terhadap elemen dark dan api; andalkan elemen light dan water agar damage kamu lebih besar. Flat damage tetap akan dipotong oleh armor mereka, jadi critical chance tinggi sangat membantu.",
+      "guide.nether.partyTipTitle": "Saran",
+      "guide.nether.partyTip":
+        "Sangat dianjurkan membuat party jika ingin melakukan nether agar lebih cepat dan efisien.",
       "guide.nether.netherLevelTitle": "Nether Level {n}",
       "guide.nether.minimumLevel": "Minimum Level {n}",
       "guide.nether.tierEmpty": "Belum ada wearable untuk tier ini.",
