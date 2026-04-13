@@ -1,0 +1,40 @@
+# Static site — no build step
+[build]
+  publish = "."
+
+# HTML — selalu fresh
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# JS & CSS — selalu fresh (karena static, nama file tidak berubah)
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Assets (gambar, font) — cache lama, jarang berubah
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
