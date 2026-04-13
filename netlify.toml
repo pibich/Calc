@@ -2,6 +2,19 @@
 [build]
   publish = "."
 
+# ✅ HTML — selalu fresh (ini yang kurang!)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# ✅ Root / index
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Security headers (tetap sama)
 [[headers]]
   for = "/*"
   [headers.values]
