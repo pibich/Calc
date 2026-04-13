@@ -74,7 +74,7 @@ const FISHING_ITEMS = [
   { id: "crab-small", name: "Crab (Small)", gemsPerUnit: 600 },
   { id: "crab-medium", name: "Crab (Medium)", gemsPerUnit: 1200 },
   { id: "crab-large", name: "Crab (Large)", gemsPerUnit: 1800 },
-  { id: "crab-huge", name: "Crab (Huge)", gemsPerUnit: 0 },
+  { id: "crab-huge", name: "Crab (Huge)", gemsPerUnit: 7000 },
   { id: "dumbfish-tiny", name: "Dumbfish (Tiny)", gemsPerUnit: 5 },
   { id: "dumbfish-small", name: "Dumbfish (Small)", gemsPerUnit: 10 },
   { id: "dumbfish-medium", name: "Dumbfish (Medium)", gemsPerUnit: 30 },
