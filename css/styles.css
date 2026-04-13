@@ -940,7 +940,7 @@ body {
   color: var(--text-muted);
 }
 
-/* Halaman 404 (Netlify) */
+/* Halaman 404 */
 .not-found {
   text-align: center;
   padding-top: clamp(3rem, 12vh, 6rem);
