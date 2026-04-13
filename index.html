@@ -50,46 +50,67 @@
           </p>
         </div>
         <div class="top-nav-actions">
-          <div
-            class="lang-toggle"
-            role="group"
-            data-i18n-attr="aria-label|nav.langAria"
-            aria-label="Bahasa"
-          >
-            <button
-              type="button"
-              class="lang-btn lang-btn--active"
-              data-lang-btn="id"
-              data-lang-set="id"
-              aria-pressed="true"
+          <div class="nav-toolbar">
+            <div
+              class="segmented segmented--lang lang-toggle"
+              role="group"
+              data-i18n-attr="aria-label|nav.langAria"
+              aria-label="Bahasa"
             >
-              ID
-            </button>
-            <button
-              type="button"
-              class="lang-btn"
-              data-lang-btn="en"
-              data-lang-set="en"
-              aria-pressed="false"
+              <button
+                type="button"
+                class="lang-btn lang-btn--active"
+                data-lang-btn="id"
+                data-lang-set="id"
+                aria-pressed="true"
+              >
+                <span class="lang-btn__inner">
+                  <span class="lang-flag" aria-hidden="true">
+                    <svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                      <rect width="3" height="1" fill="#e70011" />
+                      <rect width="3" height="1" y="1" fill="#ffffff" />
+                    </svg>
+                  </span>
+                  <span class="lang-btn__label">ID</span>
+                </span>
+              </button>
+              <button
+                type="button"
+                class="lang-btn"
+                data-lang-btn="en"
+                data-lang-set="en"
+                aria-pressed="false"
+              >
+                <span class="lang-btn__inner">
+                  <span class="lang-flag" aria-hidden="true">
+                    <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                      <path fill="#012169" d="M0 0h60v30H0z" />
+                      <path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30" />
+                      <path stroke="#c8102e" stroke-width="4" d="M0 0l60 30M60 0L0 30" />
+                      <path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60" />
+                      <path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60" />
+                    </svg>
+                  </span>
+                  <span class="lang-btn__label">EN</span>
+                </span>
+              </button>
+            </div>
+            <nav
+              class="segmented segmented--tabs top-nav__tabs tabs"
+              data-i18n-attr="aria-label|nav.aria"
+              aria-label="Mode kalkulator dan panduan"
             >
-              EN
-            </button>
+              <button type="button" class="tab tab--active" data-panel="mining" aria-selected="true">
+                <span data-i18n="tab.mining">Mining</span>
+              </button>
+              <button type="button" class="tab" data-panel="fishing" aria-selected="false">
+                <span data-i18n="tab.fishing">Fishing</span>
+              </button>
+              <button type="button" class="tab" data-panel="guide" aria-selected="false">
+                <span data-i18n="tab.guide">Guide</span>
+              </button>
+            </nav>
           </div>
-          <nav
-            class="top-nav__tabs tabs"
-            data-i18n-attr="aria-label|nav.aria"
-            aria-label="Mode kalkulator dan panduan"
-          >
-            <button type="button" class="tab tab--active" data-panel="mining" aria-selected="true">
-              <span data-i18n="tab.mining">Mining</span>
-            </button>
-            <button type="button" class="tab" data-panel="fishing" aria-selected="false">
-              <span data-i18n="tab.fishing">Fishing</span>
-            </button>
-            <button type="button" class="tab" data-panel="guide" aria-selected="false">
-              <span data-i18n="tab.guide">Guide</span>
-            </button>
-          </nav>
         </div>
       </header>
 
@@ -137,7 +158,7 @@
             <h2 id="guide-heading" class="panel-title" data-i18n="guide.title">Guide</h2>
           </div>
           <nav
-            class="guide-subtabs"
+            class="guide-subtabs segmented segmented--subtabs"
             role="tablist"
             data-i18n-attr="aria-label|guide.subtabsAria"
             aria-label="Pilih topik panduan"
