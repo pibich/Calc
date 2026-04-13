@@ -57,6 +57,12 @@
         icon: "assets/Iron_Helmet.webp",
       },
       {
+        nameKey: "guide.nether.item.legionarySandals",
+        level: 0,
+        slotId: "shoes",
+        icon: "assets/Legionary_Sandals.webp",
+      },
+      {
         nameKey: "guide.nether.item.t1KiteShield",
         level: 0,
         slotId: "shield",
@@ -95,6 +101,12 @@
         icon: "assets/Brown_Leather_Pants.webp",
       },
       {
+        nameKey: "guide.nether.item.legionarySandals",
+        level: 0,
+        slotId: "shoes",
+        icon: "assets/Legionary_Sandals.webp",
+      },
+      {
         nameKey: "guide.nether.item.t2ExecutionerAxe",
         level: 7,
         slotId: "weapon",
@@ -125,6 +137,12 @@
         level: 13,
         slotId: "pants",
         icon: "assets/Brown_Leather_Pants.webp",
+      },
+      {
+        nameKey: "guide.nether.item.legionarySandals",
+        level: 0,
+        slotId: "shoes",
+        icon: "assets/Legionary_Sandals.webp",
       },
       {
         nameKey: "guide.nether.item.t3Broom",
