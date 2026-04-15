@@ -1010,13 +1010,6 @@ main {
   width: 100%;
 }
 
-@media (min-width: 62rem) {
-  .guide-nether-tiers {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-}
-
 .guide-nether-tier {
   display: flex;
   flex-direction: column;
