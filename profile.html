@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id" data-i18n-title-key="page.profileTitle">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      try {
+        if (sessionStorage.getItem("pwInternalNav") === "1") {
+          document.documentElement.classList.add("page-tx--in");
+        }
+      } catch (e) {}
+    </script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Pixel Worlds Tools — profile and account (Supabase)."
+    />
+    <title>Profil — Pixel Worlds Tools</title>
+    <link rel="icon" href="assets/icon1.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icon1.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="page-transition-overlay" class="page-transition-overlay" aria-hidden="true">
+      <span class="page-transition-overlay__spinner"></span>
+    </div>
+    <div class="app">
+      <header class="top-nav" role="banner">
+        <div class="brand-block">
+          <h1 class="brand-heading">
+            <a href="mining.html" class="brand-heading-link" data-i18n-attr="aria-label|nav.backHomeAria">
+              <img
+                class="brand-logo"
+                src="assets/pixelworldslogo.png"
+                alt="Pixel Worlds"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </a>
+          </h1>
+        </div>
+        <div class="top-nav-actions">
+          <div class="nav-toolbar">
+            <div class="nav-toolbar__cluster">
+            <div
+              class="segmented segmented--lang lang-toggle"
+              role="group"
+              data-i18n-attr="aria-label|nav.langAria"
+              aria-label="Bahasa"
+            >
+              <button
+                type="button"
+                class="lang-btn lang-btn--active"
+                data-lang-btn="id"
+                data-lang-set="id"
+                aria-pressed="true"
+              >
+                <span class="lang-btn__inner">
+                  <span class="lang-flag" aria-hidden="true">
+                    <svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                      <rect width="3" height="1" fill="#e70011" />
+                      <rect width="3" height="1" y="1" fill="#ffffff" />
+                    </svg>
+                  </span>
+                  <span class="lang-btn__label">ID</span>
+                </span>
+              </button>
+              <button
+                type="button"
+                class="lang-btn"
+                data-lang-btn="en"
+                data-lang-set="en"
+                aria-pressed="false"
+              >
+                <span class="lang-btn__inner">
+                  <span class="lang-flag" aria-hidden="true">
+                    <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                      <path fill="#012169" d="M0 0h60v30H0z" />
+                      <path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30" />
+                      <path stroke="#c8102e" stroke-width="4" d="M0 0l60 30M60 0L0 30" />
+                      <path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60" />
+                      <path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60" />
+                    </svg>
+                  </span>
+                  <span class="lang-btn__label">EN</span>
+                </span>
+              </button>
+            </div>
+            <nav
+              class="segmented segmented--tabs top-nav__tabs tabs"
+              data-i18n-attr="aria-label|nav.aria"
+              aria-label="Mode kalkulator dan panduan"
+            >
+              <a href="mining.html" class="tab tab--link" data-i18n-attr="aria-label|tab.miningAria" aria-label="Mining calculator">
+                <span data-i18n="tab.mining">Mining</span>
+              </a>
+              <a href="fishing.html" class="tab tab--link" data-i18n-attr="aria-label|tab.fishingAria" aria-label="Fishing calculator">
+                <span data-i18n="tab.fishing">Fishing</span>
+              </a>
+              <a href="guide.html" class="tab tab--link" data-i18n-attr="aria-label|tab.guideAria" aria-label="Guide">
+                <span data-i18n="tab.guide">Guide</span>
+              </a>
+              <a
+                href="recruit.html"
+                class="tab tab--link"
+                data-i18n-attr="aria-label|tab.recruitAria"
+                aria-label="Clan recruitment"
+              >
+                <span data-i18n="tab.recruit">Clan</span>
+              </a>
+            </nav>
+            </div>
+            <div class="nav-toolbar__profile">
+              <a
+                href="profile.html"
+                class="profile-nav-link profile-nav-link--active"
+                aria-current="page"
+                data-i18n-attr="aria-label|tab.profileAria"
+                aria-label="Profile — account page"
+              >
+                <span data-i18n="tab.profile">Profil</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div
+          id="auth-page"
+          class="auth-page"
+          aria-live="polite"
+          data-i18n-attr="aria-label|auth.cardAria"
+          aria-label="Account authentication"
+        >
+          <div class="auth-page-head">
+            <h2 class="auth-page-title" data-i18n="auth.title">Account</h2>
+            <p class="auth-page-intro" data-i18n="auth.pageIntro"></p>
+            <p class="auth-state auth-state--page" id="auth-state-text" data-i18n="auth.stateSignedOut">
+              Not signed in
+            </p>
+            <button
+              type="button"
+              id="auth-logout-btn"
+              class="auth-btn auth-btn--ghost auth-logout--page"
+              data-i18n="auth.logout"
+              hidden
+            >
+              Logout
+            </button>
+          </div>
+
+          <div class="auth-split" id="auth-forms-wrap">
+            <section
+              class="auth-panel auth-panel--register"
+              aria-labelledby="auth-register-heading"
+            >
+              <h3 class="auth-panel-title" id="auth-register-heading" data-i18n="auth.registerHeading">
+                Register
+              </h3>
+              <form id="auth-register-form" class="auth-form" autocomplete="on">
+                <label class="auth-field">
+                  <span data-i18n="auth.nameLabel">Display name</span>
+                  <input
+                    id="auth-register-name"
+                    name="name"
+                    type="text"
+                    required
+                    minlength="2"
+                    maxlength="32"
+                  />
+                </label>
+                <label class="auth-field">
+                  <span data-i18n="auth.emailLabel">Email</span>
+                  <input
+                    id="auth-register-email"
+                    name="email"
+                    type="email"
+                    required
+                    autocomplete="email"
+                    placeholder="email@example.com"
+                  />
+                </label>
+                <label class="auth-field">
+                  <span data-i18n="auth.passwordLabel">Password</span>
+                  <input
+                    id="auth-register-password"
+                    name="password"
+                    type="password"
+                    required
+                    minlength="8"
+                    autocomplete="new-password"
+                  />
+                </label>
+                <button type="submit" class="auth-btn auth-btn--primary" data-i18n="auth.registerSubmit">
+                  Create account
+                </button>
+              </form>
+            </section>
+
+            <section class="auth-panel auth-panel--login" aria-labelledby="auth-login-heading">
+              <h3 class="auth-panel-title" id="auth-login-heading" data-i18n="auth.loginHeading">Login</h3>
+              <form id="auth-login-form" class="auth-form" autocomplete="on">
+                <label class="auth-field">
+                  <span data-i18n="auth.emailLabel">Email</span>
+                  <input
+                    id="auth-login-email"
+                    name="email"
+                    type="email"
+                    required
+                    autocomplete="email"
+                    placeholder="email@example.com"
+                  />
+                </label>
+                <label class="auth-field">
+                  <span data-i18n="auth.passwordLabel">Password</span>
+                  <input
+                    id="auth-login-password"
+                    name="password"
+                    type="password"
+                    required
+                    autocomplete="current-password"
+                  />
+                </label>
+                <button type="submit" class="auth-btn auth-btn--primary" data-i18n="auth.loginSubmit">
+                  Login
+                </button>
+              </form>
+              <p class="auth-login-extras">
+                <button type="button" class="auth-text-link" id="auth-forgot-open" data-i18n="auth.forgotPasswordLink">
+                  Forgot password?
+                </button>
+              </p>
+            </section>
+          </div>
+
+          <div id="auth-forgot-panel" class="auth-flow-block" hidden>
+            <section class="auth-panel" aria-labelledby="auth-forgot-heading">
+              <h3 class="auth-panel-title" id="auth-forgot-heading" data-i18n="auth.forgotPasswordHeading">
+                Reset password
+              </h3>
+              <p class="auth-flow-hint" data-i18n="auth.forgotPasswordIntro"></p>
+              <form id="auth-forgot-form" class="auth-form" autocomplete="on">
+                <label class="auth-field">
+                  <span data-i18n="auth.emailLabel">Email</span>
+                  <input
+                    id="auth-forgot-email"
+                    name="email"
+                    type="email"
+                    required
+                    autocomplete="email"
+                    placeholder="email@example.com"
+                  />
+                </label>
+                <button type="submit" class="auth-btn auth-btn--primary" data-i18n="auth.forgotPasswordSubmit">
+                  Send reset link
+                </button>
+              </form>
+              <button type="button" class="auth-btn auth-btn--ghost" id="auth-forgot-cancel" data-i18n="auth.forgotPasswordBack">
+                Back to login
+              </button>
+            </section>
+          </div>
+
+          <div id="auth-recovery-wrap" class="auth-flow-block" hidden>
+            <section class="auth-panel" aria-labelledby="auth-recovery-heading">
+              <h3 class="auth-panel-title" id="auth-recovery-heading" data-i18n="auth.recoveryHeading">
+                Set new password
+              </h3>
+              <p class="auth-flow-hint" data-i18n="auth.recoveryIntro"></p>
+              <form id="auth-recovery-form" class="auth-form" autocomplete="on">
+                <label class="auth-field">
+                  <span data-i18n="auth.newPasswordLabel">New password</span>
+                  <input
+                    id="auth-recovery-password"
+                    name="password"
+                    type="password"
+                    required
+                    minlength="8"
+                    autocomplete="new-password"
+                  />
+                </label>
+                <label class="auth-field">
+                  <span data-i18n="auth.confirmPasswordLabel">Confirm new password</span>
+                  <input
+                    id="auth-recovery-password-confirm"
+                    name="password_confirm"
+                    type="password"
+                    required
+                    minlength="8"
+                    autocomplete="new-password"
+                  />
+                </label>
+                <button type="submit" class="auth-btn auth-btn--primary" data-i18n="auth.recoverySubmit">
+                  Save new password
+                </button>
+              </form>
+            </section>
+          </div>
+
+          <div id="auth-signed-in-wrap" class="auth-flow-block" hidden>
+            <section
+              class="auth-panel"
+              id="auth-change-password-section"
+              aria-labelledby="auth-change-password-heading"
+            >
+              <div id="auth-change-password-body">
+                <h3 class="auth-panel-title" id="auth-change-password-heading" data-i18n="auth.changePasswordHeading">
+                  Change password
+                </h3>
+                <p class="auth-flow-hint" data-i18n="auth.changePasswordIntro"></p>
+                <form id="auth-change-password-form" class="auth-form" autocomplete="on">
+                  <label class="auth-field">
+                    <span data-i18n="auth.newPasswordLabel">New password</span>
+                    <input
+                      id="auth-change-password-new"
+                      name="password_new"
+                      type="password"
+                      required
+                      minlength="8"
+                      autocomplete="new-password"
+                    />
+                  </label>
+                  <label class="auth-field">
+                    <span data-i18n="auth.confirmPasswordLabel">Confirm new password</span>
+                    <input
+                      id="auth-change-password-confirm"
+                      name="password_confirm"
+                      type="password"
+                      required
+                      minlength="8"
+                      autocomplete="new-password"
+                    />
+                  </label>
+                  <button type="submit" class="auth-btn auth-btn--primary" data-i18n="auth.changePasswordSubmit">
+                    Update password
+                  </button>
+                </form>
+              </div>
+              <div id="auth-change-password-done" class="auth-password-done" hidden>
+                <p
+                  class="auth-password-done__title"
+                  id="auth-change-password-status"
+                  role="status"
+                  aria-live="polite"
+                  data-i18n="auth.changePasswordHeadingDone"
+                >
+                  Password updated
+                </p>
+                <p class="auth-flow-hint auth-password-done__hint" data-i18n="auth.success.passwordUpdatedPanel"></p>
+                <button
+                  type="button"
+                  class="auth-btn auth-btn--ghost"
+                  id="auth-change-password-again"
+                  data-i18n="auth.changePasswordAgain"
+                >
+                  Change password again
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <p class="auth-feedback auth-feedback--page" id="auth-feedback" hidden></p>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <p class="footer-disclaimer" data-i18n="footer.disclaimer"></p>
+        <p class="footer-credit" data-i18n-html="footer.creditHtml"></p>
+        <nav
+          class="footer-social"
+          data-i18n-attr="aria-label|footer.socialAria"
+          aria-label="Tautan sosial pembuat"
+        >
+          <a
+            class="footer-social-link"
+            href="https://tako.id/PIBICh"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-attr="aria-label|footer.takoAria"
+            aria-label="PIBI di Tako"
+          >
+            <img
+              class="footer-social-icon footer-social-icon--tako"
+              src="assets/takoicon.png"
+              alt=""
+              width="28"
+              height="28"
+              decoding="async"
+            />
+          </a>
+          <a
+            class="footer-social-link"
+            href="https://www.youtube.com/@pibichori"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-attr="aria-label|footer.youtubeAria"
+            aria-label="YouTube PIBI"
+          >
+            <img
+              class="footer-social-icon"
+              src="assets/youtubeicon.svg"
+              alt=""
+              width="28"
+              height="28"
+              decoding="async"
+            />
+          </a>
+          <a
+            class="footer-social-link"
+            href="https://discord.gg/WVyTVnRsJ6"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-attr="aria-label|footer.discordAria"
+            aria-label="Discord"
+          >
+            <img
+              class="footer-social-icon"
+              src="assets/discordicon.svg"
+              alt=""
+              width="28"
+              height="28"
+              decoding="async"
+            />
+          </a>
+        </nav>
+      </footer>
+    </div>
+    <script src="js/page-transition.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

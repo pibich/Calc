@@ -3,9 +3,6 @@
   const miningTotal = document.getElementById("mining-total");
   const fishingRows = document.getElementById("fishing-rows");
   const fishingTotal = document.getElementById("fishing-total");
-  const panelMining = document.getElementById("panel-mining");
-  const panelFishing = document.getElementById("panel-fishing");
-  const panelGuide = document.getElementById("panel-guide");
 
   function formatGems(n) {
     const loc = typeof PWI18N !== "undefined" && PWI18N.getLang() === "en" ? "en-US" : "id-ID";
@@ -414,32 +411,6 @@
     recalcAll();
   }
 
-  document.querySelectorAll(".tab").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const panel = btn.dataset.panel;
-      document.querySelectorAll(".tab").forEach((t) => {
-        const active = t === btn;
-        t.classList.toggle("tab--active", active);
-        t.setAttribute("aria-selected", active ? "true" : "false");
-      });
-      if (panelMining) {
-        const show = panel === "mining";
-        panelMining.classList.toggle("panel--active", show);
-        panelMining.hidden = !show;
-      }
-      if (panelFishing) {
-        const show = panel === "fishing";
-        panelFishing.classList.toggle("panel--active", show);
-        panelFishing.hidden = !show;
-      }
-      if (panelGuide) {
-        const show = panel === "guide";
-        panelGuide.classList.toggle("panel--active", show);
-        panelGuide.hidden = !show;
-      }
-    });
-  });
-
   document.querySelectorAll("[data-guide-sub]").forEach((btn) => {
     btn.addEventListener("click", () => {
       if (btn.disabled) return;
@@ -459,10 +430,10 @@
   });
 
   window.addEventListener("pw-lang-change", () => {
-    renderMining();
-    renderFishing();
+    if (miningRows) renderMining();
+    if (fishingRows) renderFishing();
   });
 
-  renderMining();
-  renderFishing();
+  if (miningRows) renderMining();
+  if (fishingRows) renderFishing();
 })();

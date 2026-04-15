@@ -5,7 +5,8 @@
 (function () {
   const netherRoot = document.getElementById("guide-nether-root");
   const miningRoot = document.getElementById("guide-mining-root");
-  if (!netherRoot && !miningRoot) return;
+  const fishingRoot = document.getElementById("guide-fishing-root");
+  if (!netherRoot && !miningRoot && !fishingRoot) return;
 
   function t(key, vars) {
     if (typeof PWI18N === "undefined") return key;
@@ -183,8 +184,16 @@
       {
         nameKey: "guide.mining.item.heavyPickaxe",
         level: 50,
+        altGroup: "pickaxe",
         slotId: "weapon",
         icon: "assets/Heavy_Pickaxe.webp",
+      },
+      {
+        nameKey: "guide.mining.item.masterPickaxe",
+        level: 65,
+        altGroup: "pickaxe",
+        slotId: "weapon",
+        icon: "assets/Master_Pickaxe.webp",
       },
       {
         nameKey: "guide.mining.item.excavatorGlasses",
@@ -225,11 +234,11 @@
     ],
     5: [
       {
-        nameKey: "guide.mining.item.heavyPickaxe",
-        level: 50,
+        nameKey: "guide.mining.item.masterPickaxe",
+        level: 65,
         altGroup: "pickaxe",
         slotId: "weapon",
-        icon: "assets/Heavy_Pickaxe.webp",
+        icon: "assets/Master_Pickaxe.webp",
       },
       {
         nameKey: "guide.mining.item.epicPickaxe",
@@ -291,18 +300,359 @@
     5: "guide.mining.target.tier5",
   };
 
+  const GUIDE_FISHING_INGREDIENT = {
+    titleKey: "guide.fishing.card.ingredient",
+    badge: "I",
+    badgeIcon: "assets/Diamond_Ring.webp",
+    items: [
+      {
+        nameKey: "guide.fishing.item.bambooRodBasic",
+        level: 0,
+        altGroup: "rod",
+        slotId: "rod",
+        icon: "assets/Bamboo_Rod_Basic.webp",
+      },
+      {
+        nameKey: "guide.fishing.item.bambooRodFine",
+        level: 10,
+        altGroup: "rod",
+        slotId: "rod",
+        icon: "assets/Bamboo_Rod_Fine.webp",
+      },
+      {
+        nameKey: "guide.fishing.item.seadogHat",
+        level: 7,
+        slotId: "hats",
+        icon: "assets/Seadog_Hat.webp",
+      },
+      {
+        nameKey: "guide.fishing.item.proFisherSuit",
+        level: 5,
+        slotId: "shirts",
+        icon: "assets/Pro_Fisher_Suit.webp",
+      },
+      {
+        nameKey: "guide.fishing.item.proFisherFaceScarf",
+        level: 90,
+        slotId: "masks",
+        icon: "assets/Pro_Fisher_Face_Scarf.webp",
+      },
+      {
+        nameKey: "guide.fishing.item.bubblePipe",
+        level: 50,
+        altGroup: "mouth",
+        slotId: "mouth",
+        icon: "assets/Bubble_Pipe.webp",
+      },
+      {
+        nameKey: "guide.fishing.item.fisherWhistleOptional",
+        level: 27,
+        altGroup: "mouth",
+        slotId: "mouth",
+        icon: "assets/Fisher_Whistle.webp",
+      },
+      {
+        nameKey: "guide.fishing.item.fishingAmulet",
+        level: 80,
+        altGroup: "accessory",
+        slotId: "neck",
+        icon: "assets/Fishing_Amulet.webp",
+      },
+      {
+        nameKey: "guide.fishing.item.wormNecklace",
+        level: 30,
+        altGroup: "accessory",
+        slotId: "neck",
+        icon: "assets/Worm_Necklace.webp",
+      },
+    ],
+    lures: [
+      {
+        nameKey: "guide.fishing.lure.neonSpoon",
+        noteKey: "guide.fishing.lureLabel",
+        icon: "assets/Neon_Spoon.webp",
+      },
+      {
+        nameKey: "guide.fishing.lure.redGlowingLure",
+        noteKey: "guide.fishing.lureLabel",
+        icon: "assets/Red_Glowing_Lure.webp",
+      },
+      {
+        nameKey: "guide.fishing.lure.greenJerk",
+        noteKey: "guide.fishing.lureLabel",
+        icon: "assets/Green_Jerk.webp",
+      },
+    ],
+  };
+
+  const GUIDE_FISHING_GEMS_STAGE_ORDER = ["early", "mid", "late"];
+
+  const GUIDE_FISHING_GEMS_BY_STAGE = {
+    early: {
+      titleKey: "guide.fishing.card.gemsEarly",
+      badge: "E",
+      badgeIcon: "assets/small-goldfish.webp",
+      items: [
+        {
+          nameKey: "guide.fishing.item.bambooRodFine",
+          level: 10,
+          altGroup: "rod",
+          slotId: "rod",
+          icon: "assets/Bamboo_Rod_Fine.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.carbonFiberRodFine",
+          level: 20,
+          altGroup: "rod",
+          slotId: "rod",
+          icon: "assets/Carbon_Fiber_Rod_Fine.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.seadogHat",
+          level: 7,
+          slotId: "hats",
+          icon: "assets/Seadog_Hat.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.proFisherSuit",
+          level: 5,
+          altGroup: "suit",
+          slotId: "shirts",
+          icon: "assets/Pro_Fisher_Suit.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.rodsterToga",
+          level: 19,
+          altGroup: "suit",
+          slotId: "shirts",
+          icon: "assets/Rodster_Toga.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.fisherWhistleOptional",
+          level: 27,
+          slotId: "mouth",
+          icon: "assets/Fisher_Whistle.webp",
+        },
+      ],
+      lures: [
+        {
+          nameKey: "guide.fishing.lure.greenSmallMinnow",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Green_Small_Minnow.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.purpleTwirltailJig",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Purple_Twirltail_Jig.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.pinkSmallMinnow",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Pink_Small_Minnow.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.greenTwirltailJig",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Green_Twirltail_Jig.webp",
+        },
+      ],
+    },
+    mid: {
+      titleKey: "guide.fishing.card.gemsMid",
+      badge: "M",
+      badgeIcon: "assets/small-tuna.webp",
+      items: [
+        {
+          nameKey: "guide.fishing.item.bambooRodFlawless",
+          level: 30,
+          altGroup: "rod",
+          slotId: "rod",
+          icon: "assets/Bamboo_Rod_Flawless.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.carbonFiberRodFlawless",
+          level: 45,
+          altGroup: "rod",
+          slotId: "rod",
+          icon: "assets/Carbon_Fiber_Rod_Flawless.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.seadogHat",
+          level: 7,
+          slotId: "hats",
+          icon: "assets/Seadog_Hat.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.proFisherSuit",
+          level: 5,
+          altGroup: "suit",
+          slotId: "shirts",
+          icon: "assets/Pro_Fisher_Suit.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.rodsterToga",
+          level: 19,
+          altGroup: "suit",
+          slotId: "shirts",
+          icon: "assets/Rodster_Toga.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.fisherWhistle",
+          level: 27,
+          slotId: "mouth",
+          icon: "assets/Fisher_Whistle.webp",
+        },
+      ],
+      lures: [
+        {
+          nameKey: "guide.fishing.lure.redTungstenJig",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Red_Tungsten_Jig.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.redFly",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Red_Fly.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.stripedSpoon",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Striped_Spoon.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.redJerk",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Red_Jerk.webp",
+        },
+      ],
+    },
+    late: {
+      titleKey: "guide.fishing.card.gemsLate",
+      badge: "L",
+      badgeIcon: "assets/small-seaangler.webp",
+      items: [
+        {
+          nameKey: "guide.fishing.item.bambooRodSuperior",
+          level: 60,
+          slotId: "rod",
+          icon: "assets/Bamboo_Rod_Superior.webp",
+          extraNoteKey: "guide.fishing.note.bambooBudget",
+        },
+        {
+          nameKey: "guide.fishing.item.carbonFiberRodSuperior",
+          level: 75,
+          altGroup: "rodPremium",
+          slotId: "rod",
+          icon: "assets/Carbon_Fiber_Rod_Superior.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.titaniumRodSuperior",
+          level: 80,
+          altGroup: "rodPremium",
+          slotId: "rod",
+          icon: "assets/Titanium_Rod_Superior.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.seadogHat",
+          level: 7,
+          slotId: "hats",
+          icon: "assets/Seadog_Hat.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.fishingAmulet",
+          level: 80,
+          altGroup: "accessory",
+          slotId: "neck",
+          icon: "assets/Fishing_Amulet.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.wormNecklace",
+          level: 30,
+          altGroup: "accessory",
+          slotId: "neck",
+          icon: "assets/Worm_Necklace.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.proFisherSuit",
+          level: 5,
+          altGroup: "suit",
+          slotId: "shirts",
+          icon: "assets/Pro_Fisher_Suit.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.rodsterToga",
+          level: 19,
+          altGroup: "suit",
+          slotId: "shirts",
+          icon: "assets/Rodster_Toga.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.fisherWhistle",
+          level: 27,
+          slotId: "mouth",
+          icon: "assets/Fisher_Whistle.webp",
+        },
+      ],
+      lures: [
+        {
+          nameKey: "guide.fishing.lure.redFly",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Red_Fly.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.silverLongMinnow",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Silver_Long_Minnow.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.redJerk",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Red_Jerk.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.greenGlowingLure",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Green_Glowing_Lure.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.yellowFly",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Yellow_Fly.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.greenSpinner",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Green_Spinner.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.greenJerk",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Green_Jerk.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.blueLongMinnow",
+          noteKey: "guide.fishing.lureLabel",
+          icon: "assets/Blue_Long_Minnow.webp",
+        },
+      ],
+    },
+  };
+
   /** Kunci i18n untuk badge slot (opsional pada tiap item). */
   const SLOT_I18N = {
     hats: "guide.nether.slot.hats",
     masks: "guide.nether.slot.masks",
+    mouth: "guide.nether.slot.mouth",
     shirts: "guide.nether.slot.shirts",
     pants: "guide.nether.slot.pants",
     wings: "guide.nether.slot.wings",
     tails: "guide.nether.slot.tails",
+    neck: "guide.nether.slot.neck",
     shoes: "guide.nether.slot.shoes",
     gloves: "guide.nether.slot.gloves",
     weapon: "guide.nether.slot.weapon",
     shield: "guide.nether.slot.shield",
+    rod: "guide.nether.slot.rod",
   };
 
   /**
@@ -568,10 +918,19 @@
     levelEl.className = "guide-wear-level";
     if (item.level != null && Number.isFinite(Number(item.level))) {
       levelEl.textContent = t("guide.nether.level", { n: String(item.level) });
+    } else if (item.noteKey) {
+      levelEl.textContent = t(item.noteKey);
     } else {
       levelEl.textContent = t("guide.nether.levelUnknown");
     }
     body.appendChild(levelEl);
+
+    if (item.extraNoteKey) {
+      const noteEl = document.createElement("div");
+      noteEl.className = "guide-wear-note";
+      noteEl.textContent = t(item.extraNoteKey);
+      body.appendChild(noteEl);
+    }
 
     card.append(iconWrap, body);
     return card;
@@ -601,6 +960,20 @@
 
     row.append(left, sep, right);
     return row;
+  }
+
+  function renderItemRows(listEl, items, accent) {
+    if (!Array.isArray(items) || items.length === 0) return;
+    for (let i = 0; i < items.length; i += 1) {
+      const item = items[i];
+      const next = items[i + 1];
+      if (item?.altGroup && next?.altGroup === item.altGroup) {
+        listEl.appendChild(renderWearOrRow(item, next, accent));
+        i += 1;
+      } else {
+        listEl.appendChild(renderWearRow(item, accent));
+      }
+    }
   }
 
   function attachTierDropdown(head, body, openInitially, scopeEl) {
@@ -707,7 +1080,8 @@
       const badge = document.createElement("div");
       badge.className = "guide-nether-tier-badge";
       badge.setAttribute("aria-hidden", "true");
-      badge.textContent = String(tier);
+      const netherCost = GUIDE_NETHER_TIER_COST[tier];
+      setTierBadgeContent(badge, String(tier), netherCost?.icon);
 
       const titles = document.createElement("div");
       titles.className = "guide-nether-tier-titles";
@@ -754,6 +1128,25 @@
 
     wrap.appendChild(grid);
     netherRoot.appendChild(wrap);
+  }
+
+  function setTierBadgeContent(badgeEl, fallbackText, iconPath) {
+    badgeEl.textContent = "";
+    if (!iconPath) {
+      badgeEl.textContent = fallbackText;
+      return;
+    }
+    const badgeImg = document.createElement("img");
+    badgeImg.src = iconPath;
+    badgeImg.alt = "";
+    badgeImg.loading = "lazy";
+    badgeImg.decoding = "async";
+    badgeImg.className = "guide-nether-tier-badge__img";
+    badgeImg.addEventListener("error", () => {
+      badgeImg.remove();
+      badgeEl.textContent = fallbackText;
+    });
+    badgeEl.appendChild(badgeImg);
   }
 
   function renderTierCostHeader(cost, labelKey, level) {
@@ -854,7 +1247,9 @@
       const badge = document.createElement("div");
       badge.className = "guide-nether-tier-badge";
       badge.setAttribute("aria-hidden", "true");
-      badge.textContent = String(tier);
+      const miningCost = GUIDE_MINING_TIER_COST[tier];
+      const miningBadgeIcon = miningCost?.icon || "assets/Bronze_Mine_Key_29.webp";
+      setTierBadgeContent(badge, String(tier), miningBadgeIcon);
 
       const titles = document.createElement("div");
       titles.className = "guide-nether-tier-titles";
@@ -890,16 +1285,7 @@
         empty.textContent = t("guide.nether.tierEmpty");
         list.appendChild(empty);
       } else {
-        for (let i = 0; i < items.length; i += 1) {
-          const item = items[i];
-          const next = items[i + 1];
-          if (item?.altGroup && next?.altGroup === item.altGroup) {
-            list.appendChild(renderWearOrRow(item, next, accent));
-            i += 1;
-          } else {
-            list.appendChild(renderWearRow(item, accent));
-          }
-        }
+        renderItemRows(list, items, accent);
       }
 
       const targetKey = GUIDE_MINING_TARGET_BY_TIER[tier];
@@ -919,9 +1305,129 @@
     miningRoot.appendChild(wrap);
   }
 
+  function renderFishingCard(cfg, accent, scopeEl) {
+    const col = document.createElement("section");
+    col.className = "guide-nether-tier";
+    col.style.setProperty("--tier-accent", accent);
+    col.setAttribute("role", "listitem");
+
+    const head = document.createElement("header");
+    head.className = "guide-nether-tier-head";
+    head.classList.add("guide-mining-tier-head");
+
+    const badge = document.createElement("div");
+    badge.className = "guide-nether-tier-badge";
+    badge.setAttribute("aria-hidden", "true");
+    setTierBadgeContent(badge, cfg.badge || "F", cfg.badgeIcon);
+
+    const titles = document.createElement("div");
+    titles.className = "guide-nether-tier-titles";
+
+    const title = document.createElement("h3");
+    title.className = "guide-nether-tier-title";
+    title.textContent = t(cfg.titleKey);
+    titles.appendChild(title);
+
+    head.append(badge, titles);
+
+    const list = document.createElement("div");
+    list.className = "guide-nether-tier-body";
+
+    if (cfg.items?.length) {
+      renderItemRows(list, cfg.items, accent);
+    } else {
+      const empty = document.createElement("p");
+      empty.className = "guide-nether-empty";
+      empty.textContent = t("guide.fishing.stagePending");
+      list.appendChild(empty);
+    }
+
+    if (cfg.lures?.length) {
+      const lureTitle = document.createElement("p");
+      lureTitle.className = "guide-fishing-lure-title";
+      lureTitle.textContent = t("guide.fishing.lureTitle");
+      list.appendChild(lureTitle);
+      renderItemRows(list, cfg.lures, accent);
+    }
+
+    attachTierDropdown(head, list, false, scopeEl);
+    col.append(head, list);
+    return col;
+  }
+
+  function renderGuideFishing() {
+    if (!fishingRoot) return;
+    fishingRoot.innerHTML = "";
+
+    const wrap = document.createElement("div");
+    wrap.className = "guide-nether-tiers-wrap";
+
+    const tip = document.createElement("aside");
+    tip.className = "guide-nether-tip";
+    tip.setAttribute("role", "note");
+
+    const infoTitle = document.createElement("h4");
+    infoTitle.className = "guide-nether-tip__title";
+    infoTitle.setAttribute("data-i18n", "guide.fishing.infoTitle");
+    infoTitle.textContent = t("guide.fishing.infoTitle");
+
+    const overview = document.createElement("p");
+    overview.className = "guide-nether-tip__text";
+    overview.setAttribute("data-i18n", "guide.fishing.overviewText");
+    overview.textContent = t("guide.fishing.overviewText");
+
+    const tipTitle = document.createElement("h4");
+    tipTitle.className = "guide-nether-tip__title";
+    tipTitle.setAttribute("data-i18n", "guide.fishing.tipTitle");
+    tipTitle.textContent = t("guide.fishing.tipTitle");
+
+    const tipBody = document.createElement("p");
+    tipBody.className = "guide-nether-tip__text";
+    tipBody.setAttribute("data-i18n", "guide.fishing.tipText");
+    tipBody.textContent = t("guide.fishing.tipText");
+
+    tip.append(infoTitle, overview, tipTitle, tipBody);
+    wrap.appendChild(tip);
+
+    const ingredientTitle = document.createElement("h4");
+    ingredientTitle.className = "guide-fishing-section-title";
+    ingredientTitle.textContent = t("guide.fishing.category.ingredient");
+    wrap.appendChild(ingredientTitle);
+
+    const ingredientGrid = document.createElement("div");
+    ingredientGrid.className = "guide-nether-tiers";
+    ingredientGrid.setAttribute("role", "list");
+    ingredientGrid.appendChild(
+      renderFishingCard(GUIDE_FISHING_INGREDIENT, "#22d3ee", ingredientGrid)
+    );
+    wrap.appendChild(ingredientGrid);
+
+    const gemsTitle = document.createElement("h4");
+    gemsTitle.className = "guide-fishing-section-title";
+    gemsTitle.textContent = t("guide.fishing.category.gems");
+    wrap.appendChild(gemsTitle);
+
+    const gemsGrid = document.createElement("div");
+    gemsGrid.className = "guide-nether-tiers";
+    gemsGrid.setAttribute("role", "list");
+
+    GUIDE_FISHING_GEMS_STAGE_ORDER.forEach((stage) => {
+      const cfg = GUIDE_FISHING_GEMS_BY_STAGE[stage];
+      if (!cfg) return;
+      let accent = "#34d399";
+      if (stage === "mid") accent = "#38bdf8";
+      if (stage === "late") accent = "#f59e0b";
+      gemsGrid.appendChild(renderFishingCard(cfg, accent, gemsGrid));
+    });
+
+    wrap.appendChild(gemsGrid);
+    fishingRoot.appendChild(wrap);
+  }
+
   function renderAndI18n() {
     renderGuideNether();
     renderGuideMining();
+    renderGuideFishing();
     if (typeof PWI18N !== "undefined") PWI18N.applyI18n();
   }
 
