@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id" data-i18n-title-key="page.lureShopTitle">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      try {
+        if (sessionStorage.getItem("pwInternalNav") === "1") {
+          document.documentElement.classList.add("page-tx--in");
+        }
+      } catch (e) {}
+    </script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Pixel Worlds lure shop calculator — set prices and stock, estimate profit."
+    />
+    <title>Lure Shop — Pixel Worlds Tools</title>
+    <link rel="icon" href="assets/icon1.png" type="image/png" />
+    <link rel="apple-touch-icon" href="assets/icon1.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="page-transition-overlay" class="page-transition-overlay" aria-hidden="true">
+      <span class="page-transition-overlay__spinner"></span>
+    </div>
+    <div class="app">
+      <header class="top-nav" role="banner">
+        <div class="top-nav__primary">
+          <div class="brand-block">
+            <h1 class="brand-heading">
+              <a href="mining.html" class="brand-heading-link" data-i18n-attr="aria-label|nav.backHomeAria">
+                <img
+                  class="brand-logo"
+                  src="assets/pixelworldslogo.png"
+                  alt="Pixel Worlds"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </a>
+            </h1>
+          </div>
+          <div class="top-nav__primary-end">
+            <div
+              class="segmented segmented--lang lang-toggle"
+              role="group"
+              data-i18n-attr="aria-label|nav.langAria"
+              aria-label="Bahasa"
+            >
+              <button
+                type="button"
+                class="lang-btn lang-btn--active"
+                data-lang-btn="id"
+                data-lang-set="id"
+                aria-pressed="true"
+              >
+                <span class="lang-btn__inner">
+                  <span class="lang-flag" aria-hidden="true">
+                    <svg viewBox="0 0 3 2" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                      <rect width="3" height="1" fill="#e70011" />
+                      <rect width="3" height="1" y="1" fill="#ffffff" />
+                    </svg>
+                  </span>
+                  <span class="lang-btn__label">ID</span>
+                </span>
+              </button>
+              <button
+                type="button"
+                class="lang-btn"
+                data-lang-btn="en"
+                data-lang-set="en"
+                aria-pressed="false"
+              >
+                <span class="lang-btn__inner">
+                  <span class="lang-flag" aria-hidden="true">
+                    <svg viewBox="0 0 60 30" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                      <path fill="#012169" d="M0 0h60v30H0z" />
+                      <path stroke="#fff" stroke-width="6" d="M0 0l60 30M60 0L0 30" />
+                      <path stroke="#c8102e" stroke-width="4" d="M0 0l60 30M60 0L0 30" />
+                      <path stroke="#fff" stroke-width="10" d="M30 0v30M0 15h60" />
+                      <path stroke="#c8102e" stroke-width="6" d="M30 0v30M0 15h60" />
+                    </svg>
+                  </span>
+                  <span class="lang-btn__label">EN</span>
+                </span>
+              </button>
+            </div>
+            <div class="nav-toolbar__profile">
+              <a
+                href="profile.html"
+                class="profile-nav-link"
+                data-i18n-attr="aria-label|tab.profileAria"
+                aria-label="Profile — open account page"
+              >
+                <span data-i18n="tab.profile">Profil</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="top-nav__tabs-row">
+          <nav
+            class="segmented segmented--tabs top-nav__tabs tabs"
+            data-i18n-attr="aria-label|nav.aria"
+            aria-label="Mode kalkulator dan panduan"
+          >
+            <a href="mining.html" class="tab tab--link" data-i18n-attr="aria-label|tab.miningAria">
+              <span data-i18n="tab.mining">Mining Gems</span>
+            </a>
+            <a href="fishing.html" class="tab tab--link" data-i18n-attr="aria-label|tab.fishingAria">
+              <span data-i18n="tab.fishing">Fishing Gems</span>
+            </a>
+            <a
+              href="lure-shop.html"
+              class="tab tab--link tab--active"
+              aria-current="page"
+              data-i18n-attr="aria-label|tab.lureAria"
+            >
+              <span data-i18n="tab.lure">Lure Shop</span>
+            </a>
+            <a href="guide.html" class="tab tab--link" data-i18n-attr="aria-label|tab.guideAria">
+              <span data-i18n="tab.guide">Guide</span>
+            </a>
+            <a href="recruit.html" class="tab tab--link" data-i18n-attr="aria-label|tab.recruitAria">
+              <span data-i18n="tab.recruit">Clan Recruit</span>
+            </a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section
+          id="lure-shop-section"
+          class="panel panel--active lure-shop lure-shop--page"
+          aria-labelledby="lure-shop-heading"
+        >
+          <div class="panel-head lure-shop__head">
+            <h2 id="lure-shop-heading" class="panel-title" data-i18n="lureShop.title">Shop lure calculator</h2>
+          </div>
+          <p class="panel-desc" data-i18n="lureShop.desc">
+            Enter your stock cost, set each lure price (per unit or pack), stock to sell, then check profit.
+          </p>
+
+          <div class="lure-shop-spend" role="group" data-i18n-attr="aria-label|lureShop.spendGroupAria">
+            <div class="lure-shop-spend__field lure-shop-spend__field--wide">
+              <label class="lure-shop-label" for="lure-shop-spend-bytes" data-i18n="lureShop.spendBytesLabel">Total spend (byte)</label>
+              <input
+                id="lure-shop-spend-bytes"
+                class="lure-shop-input lure-shop-input--meta lure-shop-input--spend-only"
+                type="number"
+                inputmode="decimal"
+                min="0"
+                step="any"
+                value=""
+                autocomplete="off"
+                data-i18n-attr="aria-label|lureShop.spendBytesAria"
+              />
+            </div>
+          </div>
+
+          <div class="lure-shop-table-wrap">
+            <table class="lure-shop-table" aria-describedby="lure-shop-heading">
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="lureShop.col.lure">Lure</th>
+                  <th scope="col" data-i18n="lureShop.col.mode">Price type</th>
+                  <th scope="col" data-i18n="lureShop.col.price">Price</th>
+                  <th scope="col" data-i18n="lureShop.col.stock">Stock (units to sell)</th>
+                  <th scope="col" class="lure-shop-table__num" data-i18n="lureShop.col.subtotal">Subtotal (byte)</th>
+                </tr>
+              </thead>
+              <tbody id="lure-shop-tbody"></tbody>
+            </table>
+          </div>
+
+          <div class="lure-shop-summary" aria-live="polite">
+            <div class="lure-shop-summary__row">
+              <span data-i18n="lureShop.revByteLabel">Estimated revenue (byte)</span>
+              <output id="lure-shop-revenue-byte" class="lure-shop-summary__val">0</output>
+            </div>
+            <div class="lure-shop-summary__row lure-shop-summary__row--strong">
+              <span data-i18n="lureShop.profitLabel">Profit (byte)</span>
+              <output id="lure-shop-profit" class="lure-shop-summary__val">0</output>
+            </div>
+            <p id="lure-shop-status" class="lure-shop-status" role="status"></p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p class="footer-disclaimer" data-i18n="footer.disclaimer"></p>
+        <p class="footer-credit" data-i18n-html="footer.creditHtml"></p>
+        <nav
+          class="footer-social"
+          data-i18n-attr="aria-label|footer.socialAria"
+          aria-label="Tautan sosial pembuat"
+        >
+          <a
+            class="footer-social-link"
+            href="https://tako.id/PIBICh"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-attr="aria-label|footer.takoAria"
+            aria-label="PIBI di Tako"
+          >
+            <img
+              class="footer-social-icon footer-social-icon--tako"
+              src="assets/takoicon.png"
+              alt=""
+              width="28"
+              height="28"
+              decoding="async"
+            />
+          </a>
+          <a
+            class="footer-social-link"
+            href="https://www.youtube.com/@pibichori"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-attr="aria-label|footer.youtubeAria"
+            aria-label="YouTube PIBI"
+          >
+            <img
+              class="footer-social-icon"
+              src="assets/youtubeicon.svg"
+              alt=""
+              width="28"
+              height="28"
+              decoding="async"
+            />
+          </a>
+          <a
+            class="footer-social-link"
+            href="https://discord.gg/WVyTVnRsJ6"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n-attr="aria-label|footer.discordAria"
+            aria-label="Discord"
+          >
+            <img
+              class="footer-social-icon"
+              src="assets/discordicon.svg"
+              alt=""
+              width="28"
+              height="28"
+              decoding="async"
+            />
+          </a>
+        </nav>
+      </footer>
+    </div>
+    <script src="js/page-transition.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/lure-shop.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

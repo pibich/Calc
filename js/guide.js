@@ -13,6 +13,18 @@
     return PWI18N.t(key, vars);
   }
 
+  function appendGuideGearNote(tip) {
+    const gearTitle = document.createElement("h4");
+    gearTitle.className = "guide-nether-tip__title";
+    gearTitle.setAttribute("data-i18n", "guide.gearNoteTitle");
+    gearTitle.textContent = t("guide.gearNoteTitle");
+    const gearBody = document.createElement("p");
+    gearBody.className = "guide-nether-tip__text";
+    gearBody.setAttribute("data-i18n", "guide.gearNoteBody");
+    gearBody.textContent = t("guide.gearNoteBody");
+    tip.append(gearTitle, gearBody);
+  }
+
   const GUIDE_NETHER_TIER_ORDER = [1, 2, 3, 4, 5];
 
   const GUIDE_NETHER_TIER_ACCENT = {
@@ -1227,6 +1239,7 @@
     tipBody.textContent = t("guide.mining.tipText");
 
     tip.append(infoTitle, overview, tipTitle, tipBody);
+    appendGuideGearNote(tip);
     wrap.appendChild(tip);
 
     const grid = document.createElement("div");
@@ -1387,6 +1400,7 @@
     tipBody.textContent = t("guide.fishing.tipText");
 
     tip.append(infoTitle, overview, tipTitle, tipBody);
+    appendGuideGearNote(tip);
     wrap.appendChild(tip);
 
     const ingredientTitle = document.createElement("h4");

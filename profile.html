@@ -34,22 +34,21 @@
     </div>
     <div class="app">
       <header class="top-nav" role="banner">
-        <div class="brand-block">
-          <h1 class="brand-heading">
-            <a href="mining.html" class="brand-heading-link" data-i18n-attr="aria-label|nav.backHomeAria">
-              <img
-                class="brand-logo"
-                src="assets/pixelworldslogo.png"
-                alt="Pixel Worlds"
-                decoding="async"
-                fetchpriority="high"
-              />
-            </a>
-          </h1>
-        </div>
-        <div class="top-nav-actions">
-          <div class="nav-toolbar">
-            <div class="nav-toolbar__cluster">
+        <div class="top-nav__primary">
+          <div class="brand-block">
+            <h1 class="brand-heading">
+              <a href="mining.html" class="brand-heading-link" data-i18n-attr="aria-label|nav.backHomeAria">
+                <img
+                  class="brand-logo"
+                  src="assets/pixelworldslogo.png"
+                  alt="Pixel Worlds"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </a>
+            </h1>
+          </div>
+          <div class="top-nav__primary-end">
             <div
               class="segmented segmented--lang lang-toggle"
               role="group"
@@ -94,30 +93,6 @@
                 </span>
               </button>
             </div>
-            <nav
-              class="segmented segmented--tabs top-nav__tabs tabs"
-              data-i18n-attr="aria-label|nav.aria"
-              aria-label="Mode kalkulator dan panduan"
-            >
-              <a href="mining.html" class="tab tab--link" data-i18n-attr="aria-label|tab.miningAria" aria-label="Mining calculator">
-                <span data-i18n="tab.mining">Mining</span>
-              </a>
-              <a href="fishing.html" class="tab tab--link" data-i18n-attr="aria-label|tab.fishingAria" aria-label="Fishing calculator">
-                <span data-i18n="tab.fishing">Fishing</span>
-              </a>
-              <a href="guide.html" class="tab tab--link" data-i18n-attr="aria-label|tab.guideAria" aria-label="Guide">
-                <span data-i18n="tab.guide">Guide</span>
-              </a>
-              <a
-                href="recruit.html"
-                class="tab tab--link"
-                data-i18n-attr="aria-label|tab.recruitAria"
-                aria-label="Clan recruitment"
-              >
-                <span data-i18n="tab.recruit">Clan</span>
-              </a>
-            </nav>
-            </div>
             <div class="nav-toolbar__profile">
               <a
                 href="profile.html"
@@ -130,6 +105,29 @@
               </a>
             </div>
           </div>
+        </div>
+        <div class="top-nav__tabs-row">
+          <nav
+            class="segmented segmented--tabs top-nav__tabs tabs"
+            data-i18n-attr="aria-label|nav.aria"
+            aria-label="Mode kalkulator dan panduan"
+          >
+            <a href="mining.html" class="tab tab--link" data-i18n-attr="aria-label|tab.miningAria">
+              <span data-i18n="tab.mining">Mining Gems</span>
+            </a>
+            <a href="fishing.html" class="tab tab--link" data-i18n-attr="aria-label|tab.fishingAria">
+              <span data-i18n="tab.fishing">Fishing Gems</span>
+            </a>
+            <a href="lure-shop.html" class="tab tab--link" data-i18n-attr="aria-label|tab.lureAria">
+              <span data-i18n="tab.lure">Lure Shop</span>
+            </a>
+            <a href="guide.html" class="tab tab--link" data-i18n-attr="aria-label|tab.guideAria">
+              <span data-i18n="tab.guide">Guide</span>
+            </a>
+            <a href="recruit.html" class="tab tab--link" data-i18n-attr="aria-label|tab.recruitAria">
+              <span data-i18n="tab.recruit">Clan Recruit</span>
+            </a>
+          </nav>
         </div>
       </header>
 

@@ -50,21 +50,38 @@ main {
 }
 
 .top-nav {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: start;
-  gap: clamp(0.85rem, 2.5vw, 1.15rem);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(0.75rem, 2vw, 1rem);
   padding-bottom: clamp(1rem, 3vw, 1.35rem);
   margin-bottom: clamp(1.15rem, 3vw, 1.65rem);
   border-bottom: 1px solid var(--border);
 }
 
-@media (min-width: 48rem) {
-  .top-nav {
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    column-gap: clamp(1rem, 2vw, 1.75rem);
-  }
+.top-nav__primary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem clamp(0.75rem, 2.5vw, 1.25rem);
+  width: 100%;
+  min-width: 0;
+}
+
+.top-nav__primary-end {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: 0.5rem 0.6rem;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.top-nav__tabs-row {
+  width: 100%;
+  min-width: 0;
 }
 
 .brand-block {
@@ -120,59 +137,10 @@ main {
   filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.35));
 }
 
-.top-nav-actions {
-  min-width: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-@media (min-width: 48rem) {
-  .top-nav-actions {
-    width: auto;
-    justify-self: end;
-    min-width: min(100%, 30rem);
-  }
-}
-
-.nav-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: stretch;
-  gap: 0.5rem 0.6rem;
-  width: 100%;
-}
-
-@media (min-width: 48rem) {
-  .nav-toolbar {
-    width: auto;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-  }
-}
-
-.nav-toolbar__cluster {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: 0.5rem 0.6rem;
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
 .nav-toolbar__profile {
   flex: 0 0 auto;
   display: flex;
   align-items: stretch;
-}
-
-@media (min-width: 48rem) {
-  .nav-toolbar__profile {
-    margin-left: 0.35rem;
-  }
 }
 
 .profile-nav-link {
@@ -242,18 +210,24 @@ main {
   min-width: 0;
 }
 
+.top-nav__primary-end .segmented--lang {
+  flex: 0 0 auto;
+}
+
 .segmented--tabs {
-  flex: 2 1 12rem;
+  flex: 1 1 auto;
   min-width: 0;
+  width: 100%;
 }
 
 @media (min-width: 48rem) {
-  .segmented--lang {
-    flex: 0 0 auto;
+  .top-nav__tabs-row .top-nav__tabs.tabs {
+    display: flex;
+    width: 100%;
   }
 
-  .segmented--tabs {
-    flex: 0 1 auto;
+  .top-nav__tabs-row .segmented--tabs {
+    width: 100%;
   }
 
   .segmented--lang .lang-btn {
@@ -262,7 +236,7 @@ main {
   }
 
   .segmented--tabs .tab {
-    flex: 0 1 auto;
+    flex: 1 1 0;
     min-width: 0;
   }
 }
@@ -575,29 +549,21 @@ main {
   outline-offset: 2px;
 }
 
-.top-nav__tabs.tabs {
-  display: flex;
-}
-
 /* Main nav tabs (Mining–Clan): 2×2 grid on narrow screens — rapi, tanpa geser horizontal */
 @media (max-width: 47.99rem) {
-  .top-nav .segmented--tabs {
+  .top-nav__tabs-row .segmented--tabs {
     flex: 1 1 auto;
     min-width: 0;
     max-width: 100%;
     overflow: visible;
     align-self: stretch;
-  }
-
-  .top-nav .segmented--tabs .tabs {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--nav-seg-gap);
     align-items: stretch;
-    width: 100%;
   }
 
-  .top-nav .segmented--tabs .tab {
+  .top-nav__tabs-row .segmented--tabs .tab {
     flex: unset;
     min-width: 0;
     width: 100%;
@@ -607,7 +573,7 @@ main {
     line-height: 1.2;
   }
 
-  .top-nav .segmented--tabs .tab span {
+  .top-nav__tabs-row .segmented--tabs .tab span {
     white-space: normal;
     overflow: visible;
     text-overflow: unset;
@@ -740,6 +706,7 @@ a.tab.tab--link:hover {
   margin: 0 0 1rem;
   color: var(--text-muted);
   font-size: 1rem;
+  overflow-wrap: break-word;
 }
 
 .panel-desc.muted {
@@ -1145,6 +1112,36 @@ a.tab.tab--link:hover {
     min-height: 2.75rem;
     padding: 0.5rem 0.85rem;
   }
+
+  /* Lure shop: 16px+ inputs avoid iOS zoom-on-focus; headers wrap instead of widening table */
+  .lure-shop-input {
+    font-size: 1rem;
+    min-height: 2.5rem;
+  }
+
+  .lure-shop-table th {
+    white-space: normal;
+    line-height: 1.25;
+    hyphens: auto;
+  }
+
+  .lure-shop-mode.segmented {
+    flex-wrap: wrap;
+  }
+
+  .lure-shop-mode-btn {
+    min-height: 2.5rem;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.4rem;
+  }
+
+  .lure-shop-spend {
+    padding: 0.85rem 0.75rem;
+  }
+
+  .lure-shop-summary {
+    padding: 0.85rem 0.75rem;
+  }
 }
 
 @media (max-width: 36rem) {
@@ -1157,30 +1154,27 @@ a.tab.tab--link:hover {
     max-width: 100%;
   }
 
-  .nav-toolbar {
+  .top-nav__primary {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .nav-toolbar__cluster {
-    flex-direction: column;
-    align-items: stretch;
+  .top-nav__primary-end {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .top-nav__primary-end .segmented--lang {
+    flex: 1 1 auto;
+    min-width: 0;
   }
 
   .nav-toolbar__profile {
-    align-self: stretch;
-    width: 100%;
+    flex: 0 0 auto;
   }
 
   .profile-nav-link {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .segmented--lang,
-  .segmented--tabs {
-    flex: 1 1 auto;
-    width: 100%;
+    min-width: 0;
   }
 
   .panel-head {
@@ -1222,6 +1216,34 @@ a.tab.tab--link:hover {
     align-items: center;
     justify-content: center;
     min-height: 2.75rem;
+  }
+
+  /* Lure shop: table fits viewport width; remove wide column floors */
+  .lure-shop-table {
+    min-width: 100%;
+    font-size: 0.8125rem;
+  }
+
+  .lure-shop-price-wrap {
+    min-width: 0;
+  }
+
+  .lure-shop-field-group--stock {
+    min-width: 0;
+  }
+
+  .lure-shop-table th,
+  .lure-shop-table td {
+    padding: 0.45rem 0.28rem;
+  }
+
+  .lure-shop-icon {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .lure-shop-input--meta {
+    max-width: 100%;
   }
 
   .recruit-card__clan {
@@ -1435,6 +1457,7 @@ a.tab.tab--link:hover {
   font-weight: 500;
   line-height: 1.45;
   color: var(--text);
+  overflow-wrap: break-word;
 }
 
 .guide-nether-tiers-wrap {
@@ -2135,6 +2158,274 @@ a.tab.tab--link:hover {
 
 .recruit-toggle input {
   accent-color: var(--accent);
+}
+
+/* ——— Fishing: shop lure calculator ——— */
+.lure-shop {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.lure-shop--page {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.lure-shop-input--spend-only {
+  max-width: 100%;
+}
+
+.lure-shop__head {
+  margin-bottom: 0.35rem;
+}
+
+.lure-shop-spend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.lure-shop-spend__field--wide {
+  grid-column: 1 / -1;
+}
+
+.lure-shop-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.lure-shop-input {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.lure-shop-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.lure-shop-input--meta {
+  max-width: 16rem;
+}
+
+.lure-shop-table-wrap {
+  overflow-x: auto;
+  margin: 0 -0.15rem;
+  padding: 0 0.15rem 0.25rem;
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.lure-shop-table {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.lure-shop-table th,
+.lure-shop-table td {
+  padding: 0.55rem 0.45rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+
+.lure-shop-table th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.lure-shop-table__num {
+  text-align: right;
+  font-family: "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.lure-shop-lure-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.lure-shop-icon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: radial-gradient(ellipse 80% 80% at 50% 30%, var(--surface-hover), var(--bg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lure-shop-icon--empty {
+  border-style: dashed;
+  opacity: 0.55;
+}
+
+.lure-shop-icon__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: auto;
+  -webkit-user-drag: none;
+}
+
+.lure-shop-name {
+  font-weight: 600;
+  line-height: 1.25;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.lure-shop-mode {
+  padding: 2px;
+  gap: 2px;
+  min-height: 0;
+}
+
+.lure-shop-mode-btn {
+  font-family: inherit;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.35rem 0.45rem;
+  min-height: 2rem;
+  flex: 1 1 0;
+  min-width: 0;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.lure-shop-mode-btn:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+}
+
+.lure-shop-mode-btn--active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 42%, transparent);
+}
+
+.lure-shop-mode-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.lure-shop-price-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  min-width: 9rem;
+}
+
+.lure-shop-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.lure-shop-field-group--stock {
+  min-width: 6.5rem;
+}
+
+.lure-shop-field-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.lure-shop-subtotal {
+  display: block;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.lure-shop-summary {
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--accent-dim) 35%, var(--surface));
+  display: grid;
+  gap: 0.45rem;
+}
+
+.lure-shop-summary__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1rem;
+  font-size: 0.9rem;
+}
+
+.lure-shop-summary__row--muted {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+.lure-shop-summary__row--strong {
+  font-weight: 700;
+  font-size: 1rem;
+  padding-top: 0.35rem;
+  margin-top: 0.15rem;
+  border-top: 1px solid var(--border);
+}
+
+.lure-shop-summary__val {
+  font-family: "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.lure-shop-status {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.lure-shop-status--profit {
+  color: var(--accent);
+}
+
+.lure-shop-status--loss {
+  color: var(--danger);
+}
+
+.lure-shop-status--break {
+  color: var(--text-muted);
 }
 
 /* ——— Internal page transition (reduces footer / layout flash between pages) ——— */
