@@ -139,11 +139,27 @@
   }
 
   function redirectUrlProfile() {
+    var conf = global.PW_SUPABASE_CONFIG || {};
+
+    var override = String(conf.siteOrigin || "").trim();
+
+    var baseForUrl =
+      /^https?:\/\//i.test(override) ? override.replace(/\/+$/, "") : null;
+
     try {
-      const u = new URL("profile.html", location.href);
+      var u = new URL(
+        "profile.html",
+        baseForUrl ? baseForUrl + "/" : location.href,
+      );
 
       return u.href.replace(/[#].*$/, "");
     } catch (e) {
+      if (baseForUrl) {
+        try {
+          return (baseForUrl + "/profile.html").replace(/[#].*$/, "");
+        } catch (e2) {}
+      }
+
       return String(location.origin || "") + "/profile.html";
     }
   }
@@ -170,6 +186,96 @@
     } catch (e2) {
       history.replaceState(null, "", location.pathname + location.search);
     }
+  }
+
+  function readSupabaseAuthUrlError() {
+    var code = "";
+
+    var desc = "";
+
+    var raw = "";
+
+    function pull(params) {
+      if (!params) return;
+
+      if (!code) code = params.get("error_code") || params.get("error") || "";
+
+      if (!desc) desc = params.get("error_description") || "";
+
+      if (!raw) raw = params.get("error") || "";
+    }
+
+    try {
+      pull(new URLSearchParams(location.search));
+    } catch (e0) {}
+
+    try {
+      var h = String(location.hash || "").replace(/^#/, "");
+
+      if (h) pull(new URLSearchParams(h));
+    } catch (e1) {}
+
+    return { code: code, desc: desc, rawError: raw };
+  }
+
+  function stripSupabaseAuthErrorsFromUrl() {
+    try {
+      var u = new URL(location.href);
+
+      ["error", "error_code", "error_description"].forEach(function (k) {
+        u.searchParams.delete(k);
+      });
+
+      u.hash = "";
+
+      history.replaceState(null, "", u.pathname + (u.search || ""));
+    } catch (e2) {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+  }
+
+  function decodeAuthErrorDescription(s) {
+    var t = String(s || "").replace(/\+/g, " ");
+
+    try {
+      return decodeURIComponent(t);
+    } catch (e3) {
+      return t;
+    }
+  }
+
+  function consumeAuthRedirectErrors() {
+    var err = readSupabaseAuthUrlError();
+
+    if (!err.code && !err.desc && !err.rawError) return;
+
+    var code = String(err.code || "").toLowerCase();
+
+    var desc = String(err.desc || "").toLowerCase();
+
+    var raw = String(err.rawError || "").toLowerCase();
+
+    var looksExpired =
+      code === "otp_expired" ||
+      desc.indexOf("expired") !== -1 ||
+      desc.indexOf("invalid") !== -1;
+
+    var accessDenied = raw === "access_denied";
+
+    stripSupabaseAuthErrorsFromUrl();
+
+    forgotPanelVisible = true;
+
+    if (code === "otp_expired" || (accessDenied && looksExpired)) {
+      showFeedback(tr("auth.error.recoveryLinkExpired"), true);
+
+      return;
+    }
+
+    showFeedback(
+      err.desc ? decodeAuthErrorDescription(err.desc) : tr("auth.error.generic"),
+      true,
+    );
   }
 
   const cfg = global.PW_SUPABASE_CONFIG || {};
@@ -648,6 +754,8 @@
   global.addEventListener("pw-lang-change", function () {
     refreshSession();
   });
+
+  consumeAuthRedirectErrors();
 
   refreshSession();
 })(window);

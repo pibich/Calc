@@ -74,15 +74,15 @@ const FISHING_ITEMS = [
   { id: "crab-small", name: "Crab (Small)", gemsPerUnit: 600 },
   { id: "crab-medium", name: "Crab (Medium)", gemsPerUnit: 1200 },
   { id: "crab-large", name: "Crab (Large)", gemsPerUnit: 1800 },
-  { id: "crab-huge", name: "Crab (Huge)", gemsPerUnit: 0 },
+  { id: "crab-huge", name: "Crab (Huge)", gemsPerUnit: 4840 },
   { id: "dumbfish-tiny", name: "Dumbfish (Tiny)", gemsPerUnit: 5 },
   { id: "dumbfish-small", name: "Dumbfish (Small)", gemsPerUnit: 10 },
   { id: "dumbfish-medium", name: "Dumbfish (Medium)", gemsPerUnit: 30 },
   { id: "dumbfish-large", name: "Dumbfish (Large)", gemsPerUnit: 50 },
   { id: "dumbfish-huge", name: "Dumbfish (Huge)", gemsPerUnit: 100 },
-  { id: "piranha-tiny", name: "Piranha (Tiny)", gemsPerUnit: 0 },
-  { id: "piranha-small", name: "Piranha (Small)", gemsPerUnit: 0 },
-  { id: "piranha-medium", name: "Piranha (Medium)", gemsPerUnit: 0 },
-  { id: "piranha-large", name: "Piranha (Large)", gemsPerUnit: 0 },
-  { id: "piranha-huge", name: "Piranha (Huge)", gemsPerUnit: 0 }
+  { id: "piranha-tiny", name: "Piranha (Tiny)", gemsPerUnit: 30 },
+  { id: "piranha-small", name: "Piranha (Small)", gemsPerUnit: 120 },
+  { id: "piranha-medium", name: "Piranha (Medium)", gemsPerUnit: 210 },
+  { id: "piranha-large", name: "Piranha (Large)", gemsPerUnit: 300 },
+  { id: "piranha-huge", name: "Piranha (Huge)", gemsPerUnit: 900 }
 ];

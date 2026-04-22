@@ -30,9 +30,9 @@
     { id: "radioactive-worm-bait", nameKey: "lureShop.names.radioactiveWormBait", icon: "assets/Radioactive_Worm_Bait.webp" },
   ];
 
-  const spendBytesEl = document.getElementById("lure-shop-spend-bytes");
+  const spendGemsEl = document.getElementById("lure-shop-spend-gems");
   const outRevenueByte = document.getElementById("lure-shop-revenue-byte");
-  const outProfit = document.getElementById("lure-shop-profit");
+  const outBytePerGem = document.getElementById("lure-shop-byte-per-gem");
   const statusEl = document.getElementById("lure-shop-status");
 
   function t(key, vars) {
@@ -98,23 +98,22 @@
       revenueBytes += recalcRow(tr);
     });
 
-    const spendBytes = Math.max(0, parseNum(spendBytesEl));
-    const profitByte = revenueBytes - spendBytes;
+    const spendGems = Math.max(0, parseNum(spendGemsEl));
+    const bytePerGem = spendGems > 0 ? revenueBytes / spendGems : 0;
 
     if (outRevenueByte) outRevenueByte.textContent = formatNum(revenueBytes);
-    if (outProfit) outProfit.textContent = formatNum(profitByte);
+    if (outBytePerGem) outBytePerGem.textContent = formatNum(bytePerGem);
 
     if (statusEl) {
       statusEl.classList.remove("lure-shop-status--profit", "lure-shop-status--loss", "lure-shop-status--break");
-      const eps = 1e-6;
-      if (Math.abs(profitByte) < eps) {
+      if (spendGems > 0) {
+        statusEl.textContent = t("lureShop.statusProfit", { n: formatNum(bytePerGem) });
+        statusEl.classList.add("lure-shop-status--profit");
+      } else if (revenueBytes > 0) {
         statusEl.textContent = t("lureShop.statusBreak");
         statusEl.classList.add("lure-shop-status--break");
-      } else if (profitByte > 0) {
-        statusEl.textContent = t("lureShop.statusProfit", { n: formatNum(profitByte) });
-        statusEl.classList.add("lure-shop-status--profit");
       } else {
-        statusEl.textContent = t("lureShop.statusLoss", { n: formatNum(Math.abs(profitByte)) });
+        statusEl.textContent = t("lureShop.statusLoss");
         statusEl.classList.add("lure-shop-status--loss");
       }
     }
@@ -279,7 +278,7 @@
     recalcAll();
   });
 
-  if (spendBytesEl) spendBytesEl.addEventListener("input", recalcAll);
+  if (spendGemsEl) spendGemsEl.addEventListener("input", recalcAll);
 
   window.addEventListener("pw-lang-change", () => {
     if (typeof PWI18N !== "undefined") PWI18N.applyI18n();
