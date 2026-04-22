@@ -46,7 +46,7 @@
 
   const client = global.supabase.createClient(cfg.url, cfg.anonKey, {
     auth: {
-      flowType: "pkce",
+      flowType: "implicit",
       persistSession: true,
       autoRefreshToken: true,
       detectSessionInUrl: true,

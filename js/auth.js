@@ -304,7 +304,10 @@
 
   const client = global.supabase.createClient(cfg.url, cfg.anonKey, {
     auth: {
-      flowType: "pkce",
+      // Implicit: recovery tokens live in the URL hash, so the reset link works in
+      // any browser/device. PKCE ties the exchange to the same browser that requested
+      // the email (code_verifier in localStorage), which breaks Chrome A → Chrome B.
+      flowType: "implicit",
 
       persistSession: true,
 
