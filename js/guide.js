@@ -197,6 +197,665 @@
     5: { nameKey: "guide.nether.cost.scrollV", icon: "assets/Nether_Scroll_V.webp" },
   };
 
+  const GUIDE_NETHER_STAT_ICON_ORDER = [
+    { key: "xp", icon: "assets/icon/ItemInfo_XPLevel_Requirement_icon.webp" },
+    { key: "power", icon: "assets/icon/ItemInfo_Damage_icon.webp" },
+    { key: "critical", icon: "assets/icon/ItemInfo_Critical_icon.webp" },
+    { key: "earth", icon: "assets/icon/DamageElement_earth.webp" },
+    { key: "air", icon: "assets/icon/DamageElement_air.webp" },
+    { key: "fire", icon: "assets/icon/DamageElement_fire.webp" },
+    { key: "water", icon: "assets/icon/DamageElement_water.webp" },
+    { key: "dark", icon: "assets/icon/DamageElement_dark.webp" },
+    { key: "light", icon: "assets/icon/DamageElement_light.webp" },
+  ];
+
+  const GUIDE_NETHER_STATS_BY_NAME_KEY = {
+    "guide.nether.item.t1IronHelmet": {
+      lvl: 7,
+      damage: 0,
+      armor: 6,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t1ExecutionerAxe": {
+      lvl: 7,
+      damage: 107,
+      armor: 0,
+      critical: 5,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.leatherGloves": {
+      lvl: 7,
+      damage: 0,
+      armor: 6,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t1KiteShield": {
+      lvl: 0,
+      damage: 0,
+      armor: 4,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.vikingLeatherShoes": {
+      lvl: 0,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t2ChainmailVikingHelmet": {
+      lvl: 13,
+      damage: 0,
+      armor: 10,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t2LegionaryChestArmor": {
+      lvl: 13,
+      damage: 0,
+      armor: 10,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t2BrownLeatherPants": {
+      lvl: 13,
+      damage: 0,
+      armor: 10,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t2ExecutionerAxe": {
+      lvl: 7,
+      damage: 107,
+      armor: 0,
+      critical: 5,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t2ScutumShield": {
+      lvl: 7,
+      damage: 0,
+      armor: 6,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t3GeneralsLegionaryHelmet": {
+      lvl: 23,
+      damage: 0,
+      armor: 16,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t3LegionaryChestArmor": {
+      lvl: 13,
+      damage: 0,
+      armor: 10,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t3BrownLeatherPants": {
+      lvl: 13,
+      damage: 0,
+      armor: 10,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.t3Broom": {
+      lvl: 18,
+      damage: 124,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 12,
+      light: 0,
+    },
+    "guide.nether.item.t3ScutumShield": {
+      lvl: 7,
+      damage: 0,
+      armor: 6,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.vikingChainmail": {
+      lvl: 37,
+      damage: 0,
+      armor: 24,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.honshuSword": {
+      lvl: 34,
+      damage: 165,
+      armor: 0,
+      critical: 4,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.doubleHeadedAxes": {
+      lvl: 43,
+      damage: 191,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+  };
+
+  const GUIDE_MINING_STATS_BY_NAME_KEY = {
+    "guide.mining.item.crappyPickaxe": {
+      lvl: 5,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.flimsyPickaxe": {
+      lvl: 10,
+      damage: 105,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.basicPickaxe": {
+      lvl: 20,
+      damage: 110,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.sturdyPickaxe": {
+      lvl: 35,
+      damage: 110,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.heavyPickaxe": {
+      lvl: 50,
+      damage: 115,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.masterPickaxe": {
+      lvl: 65,
+      damage: 115,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.epicPickaxe": {
+      lvl: 80,
+      damage: 120,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.excavatorGloves": {
+      lvl: 12,
+      damage: 0,
+      armor: 4,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.excavatorMoustache": {
+      lvl: 27,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.deepDwellerShirt": {
+      lvl: 17,
+      damage: 0,
+      armor: 8,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 6,
+    },
+    "guide.mining.item.deepDwellerPants": {
+      lvl: 12,
+      damage: 0,
+      armor: 8,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 4,
+    },
+    "guide.mining.item.deepDwellerShoes": {
+      lvl: 5,
+      damage: 0,
+      armor: 4,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.excavatorGlasses": {
+      lvl: 33,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 6,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.minerGasmask": {
+      lvl: 48,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 10,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.mining.item.sturdyMiningHelmet": {
+      lvl: 64,
+      damage: 0,
+      armor: 4,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+  };
+
+  const GUIDE_FISHING_STATS_BY_NAME_KEY = {
+    "guide.fishing.item.bambooRodBasic": {
+      lvl: 0,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.bambooRodFine": {
+      lvl: 10,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.bambooRodFlawless": {
+      lvl: 30,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.bambooRodSuperior": {
+      lvl: 60,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.carbonFiberRodFine": {
+      lvl: 20,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.carbonFiberRodFlawless": {
+      lvl: 45,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.carbonFiberRodSuperior": {
+      lvl: 75,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.titaniumRodSuperior": {
+      lvl: 80,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.seadogHat": {
+      lvl: 7,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.proFisherSuit": {
+      lvl: 5,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.proFisherFaceScarf": {
+      lvl: 90,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.bubblePipe": {
+      lvl: 50,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.fisherWhistleOptional": {
+      lvl: 27,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.fisherWhistle": {
+      lvl: 27,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.fishingAmulet": {
+      lvl: 80,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.wormNecklace": {
+      lvl: 30,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.rodsterToga": {
+      lvl: 19,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+  };
+
+  const GUIDE_GEAR_EFFECT_BY_NAME_KEY = {
+    // Mining gear effects
+    "guide.mining.item.crappyPickaxe": "1 gemstone per gemstone block",
+    "guide.mining.item.flimsyPickaxe": "1-2 gemstones per gemstone block",
+    "guide.mining.item.basicPickaxe": "1-3 gemstones per gemstone block",
+    "guide.mining.item.sturdyPickaxe": "2-4 gemstones per gemstone block",
+    "guide.mining.item.heavyPickaxe": "2-5 gemstones per gemstone block",
+    "guide.mining.item.masterPickaxe": "2-5 gemstones per gemstone block",
+    "guide.mining.item.epicPickaxe": "2-6 gemstones per gemstone block",
+    "guide.mining.item.excavatorGloves": "More Huge Gemstones",
+    "guide.mining.item.excavatorMoustache": "More Extra Gemstones",
+    "guide.mining.item.excavatorGlasses": "More Huge Gemstones",
+    "guide.mining.item.minerGasmask": "More Huge Gemstones",
+    "guide.mining.item.deepDwellerShirt": "More Ingredient Drops",
+    "guide.mining.item.deepDwellerPants": "Longer Light Crystal Duration",
+    "guide.mining.item.deepDwellerShoes": "Enemy Spawn Indicator",
+    "guide.mining.item.sturdyMiningHelmet": "More Extra Gemstones",
+
+    // Fishing gear effects
+    "guide.fishing.item.seadogHat": "Higher Strike Frequency",
+    "guide.fishing.item.proFisherSuit": "Higher Strike Frequency",
+    "guide.fishing.item.proFisherFaceScarf": "More Ingredient Chance",
+    "guide.fishing.item.bubblePipe": "More Ingredient Chance",
+    "guide.fishing.item.fisherWhistleOptional": "Higher Strike Frequency",
+    "guide.fishing.item.fisherWhistle": "Higher Strike Frequency",
+    "guide.fishing.item.fishingAmulet": "No Lure Loss",
+    "guide.fishing.item.wormNecklace": "Higher Strike Frequency",
+    "guide.fishing.item.rodsterToga": "Slower Fish",
+    "guide.fishing.item.bambooRodBasic": "Best for Small Fish",
+    "guide.fishing.item.bambooRodFine": "Best for Small Fish",
+    "guide.fishing.item.bambooRodFlawless": "Best for Small Fish",
+    "guide.fishing.item.bambooRodSuperior": "Best for Small Fish",
+    "guide.fishing.item.carbonFiberRodFine": "Better for Large Fish",
+    "guide.fishing.item.carbonFiberRodFlawless": "Better for Large Fish",
+    "guide.fishing.item.carbonFiberRodSuperior": "Better for Large Fish",
+    "guide.fishing.item.titaniumRodSuperior": "Best for Largest Fish",
+  };
+
   const GUIDE_MINING_TIER_ORDER = [1, 2, 3, 4, 5];
 
   const GUIDE_MINING_TIER_MIN_LEVEL = {
@@ -1028,6 +1687,10 @@
   };
 
   function renderWearCard(item) {
+    const isNetherItem = Boolean(item.nameKey && item.nameKey.startsWith("guide.nether.item."));
+    const isMiningItem = Boolean(item.nameKey && item.nameKey.startsWith("guide.mining.item."));
+    const isFishingItem = Boolean(item.nameKey && item.nameKey.startsWith("guide.fishing.item."));
+    const isGuideStatItem = isNetherItem || isMiningItem || isFishingItem;
     const card = document.createElement("div");
     card.className = "guide-wear-card";
     const iconWrap = document.createElement("div");
@@ -1063,12 +1726,77 @@
 
     body.appendChild(nameEl);
 
+    if (isGuideStatItem) {
+      const sourceStats = isNetherItem
+        ? GUIDE_NETHER_STATS_BY_NAME_KEY[item.nameKey]
+        : isMiningItem
+          ? GUIDE_MINING_STATS_BY_NAME_KEY[item.nameKey]
+          : GUIDE_FISHING_STATS_BY_NAME_KEY[item.nameKey];
+      if (sourceStats) {
+        const statList = document.createElement("div");
+        statList.className = "guide-wear-stats-list";
+        const isWeapon = item.slotId === "weapon";
+        const xpValue = Number.isFinite(Number(sourceStats.lvl))
+          ? Number(sourceStats.lvl)
+          : Number(item.level) || 0;
+
+        GUIDE_NETHER_STAT_ICON_ORDER.forEach((cfg) => {
+          const statChip = document.createElement("span");
+          statChip.className = "guide-wear-stat";
+          statChip.classList.add(`guide-wear-stat--${cfg.key}`);
+
+          const iconWrap = document.createElement("span");
+          iconWrap.className = "guide-wear-stats-icon";
+          const isPowerIcon = cfg.key === "power";
+          const iconPath =
+            isPowerIcon && !isWeapon
+              ? "assets/icon/ItemInfo_Defence_icon.webp"
+              : cfg.icon;
+
+          const statImg = document.createElement("img");
+          statImg.src = iconPath;
+          statImg.alt = "";
+          statImg.loading = "lazy";
+          statImg.decoding = "async";
+          statImg.addEventListener("error", () => {
+            statChip.remove();
+          });
+          iconWrap.appendChild(statImg);
+
+          let value = 0;
+          if (cfg.key === "xp") value = xpValue;
+          else if (cfg.key === "power") value = Number(sourceStats[isWeapon ? "damage" : "armor"]) || 0;
+          else value = Number(sourceStats[cfg.key]) || 0;
+
+          const valueEl = document.createElement("span");
+          valueEl.className = "guide-wear-stat-value";
+          if (value > 0) {
+            statChip.classList.add("guide-wear-stat--active");
+          }
+          valueEl.textContent = cfg.key === "critical" ? `${value}%` : String(value);
+
+          statChip.append(iconWrap, valueEl);
+          statList.appendChild(statChip);
+        });
+
+        body.appendChild(statList);
+      }
+    }
+
     if (item.slotId && SLOT_I18N[item.slotId]) {
       const slotEl = document.createElement("span");
       slotEl.className = "guide-wear-slot";
       slotEl.setAttribute("data-i18n", SLOT_I18N[item.slotId]);
       slotEl.textContent = t(SLOT_I18N[item.slotId]);
       body.appendChild(slotEl);
+    }
+
+    const gearEffect = GUIDE_GEAR_EFFECT_BY_NAME_KEY[item.nameKey];
+    if (gearEffect) {
+      const effectEl = document.createElement("div");
+      effectEl.className = "guide-wear-effect";
+      effectEl.textContent = gearEffect;
+      body.appendChild(effectEl);
     }
 
     if (!item.hideMetaRow) {
@@ -1081,7 +1809,9 @@
       } else {
         levelEl.textContent = t("guide.nether.levelUnknown");
       }
-      body.appendChild(levelEl);
+      if (!isGuideStatItem) {
+        body.appendChild(levelEl);
+      }
 
       if (item.extraNoteKey) {
         const noteEl = document.createElement("div");

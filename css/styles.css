@@ -13,6 +13,7 @@
   --nav-seg-pad: 3px;
   --nav-seg-gap: 3px;
   --nav-seg-height: 2.75rem;
+  --main-sidebar-w: 14.5rem;
   font-synthesis: none;
 }
 
@@ -612,9 +613,28 @@ a.tab.tab--link {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   text-decoration: none;
   color: var(--text-muted);
   box-sizing: border-box;
+}
+
+.sidebar-tab-icon {
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0 auto;
+  object-fit: contain;
+  padding: 0.18rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  background: color-mix(in srgb, var(--surface-hover) 82%, transparent);
+  image-rendering: auto;
+  opacity: 0.95;
+}
+
+.sidebar-tab-icon--profile {
+  width: 3rem;
+  height: 3rem;
 }
 
 a.tab.tab--link:hover {
@@ -1191,6 +1211,16 @@ a.tab.tab--link:hover {
   .recruit-card__clan {
     overflow-wrap: anywhere;
   }
+
+  .top-nav__tabs-row .segmented--tabs .tab {
+    min-height: 2.55rem;
+    padding: 0.32rem 0.42rem;
+  }
+
+  .top-nav__tabs-row .segmented--tabs .tab span {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
 }
 
 @media (max-width: 22rem) {
@@ -1226,6 +1256,15 @@ a.tab.tab--link:hover {
 @media (max-width: 26rem) {
   .mining-cols {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .top-nav__tabs-row .segmented--tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .top-nav__tabs-row .segmented--tabs .tab {
+    min-height: 2.45rem;
+    padding: 0.3rem 0.4rem;
   }
 
   .mining-cols .mining-cell:nth-child(5) {
@@ -1695,7 +1734,8 @@ a.tab.tab--link:hover {
   height: clamp(3.35rem, 18vw, 4.75rem);
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--tier-accent) 30%, var(--border));
+  border: 2px solid color-mix(in srgb, var(--tier-accent) 50%, var(--border));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tier-accent) 22%, var(--bg));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1731,6 +1771,18 @@ a.tab.tab--link:hover {
   border: 1px solid color-mix(in srgb, var(--tier-accent) 35%, var(--border));
 }
 
+.guide-wear-effect {
+  font-size: clamp(0.62rem, 2.2vw, 0.74rem);
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--tier-accent) 68%, var(--text-muted));
+  padding: 0.16rem 0.42rem;
+  border-radius: 6px;
+  border: 1px dashed color-mix(in srgb, var(--tier-accent) 34%, var(--border));
+  background: color-mix(in srgb, var(--tier-accent) 10%, var(--bg));
+  align-self: flex-start;
+  max-width: 100%;
+}
+
 .guide-wear-body {
   min-width: 0;
   flex: 1;
@@ -1746,6 +1798,151 @@ a.tab.tab--link:hover {
   color: var(--text);
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+.guide-wear-stats-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.22rem 0.38rem;
+  margin-top: 0.08rem;
+}
+
+.guide-wear-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+  min-width: 3.2rem;
+  padding: 0.18rem 0.44rem;
+  border-radius: 6px;
+  border: 1px solid color-mix(in srgb, var(--tier-accent) 28%, var(--border));
+  background: color-mix(in srgb, var(--tier-accent) 10%, var(--bg));
+}
+
+.guide-wear-stat--active .guide-wear-stat-value {
+  color: color-mix(in srgb, var(--tier-accent) 88%, #9dfeb6);
+  font-weight: 700;
+}
+
+.guide-wear-stat--active .guide-wear-stats-icon {
+  border-color: color-mix(in srgb, var(--tier-accent) 55%, #9dfeb6);
+  background: color-mix(in srgb, var(--tier-accent) 20%, var(--bg));
+}
+
+.guide-wear-stat--active {
+  border-color: color-mix(in srgb, var(--tier-accent) 56%, #9dfeb6);
+  background: color-mix(in srgb, var(--tier-accent) 16%, var(--bg));
+}
+
+.guide-wear-stat--earth.guide-wear-stat--active .guide-wear-stat-value {
+  color: #7ecf63;
+}
+
+.guide-wear-stat--earth.guide-wear-stat--active .guide-wear-stats-icon {
+  border-color: #7ecf63;
+  background: color-mix(in srgb, #7ecf63 20%, var(--bg));
+}
+
+.guide-wear-stat--earth.guide-wear-stat--active {
+  border-color: #7ecf63;
+  background: color-mix(in srgb, #7ecf63 16%, var(--bg));
+}
+
+.guide-wear-stat--air.guide-wear-stat--active .guide-wear-stat-value {
+  color: #8ed8ff;
+}
+
+.guide-wear-stat--air.guide-wear-stat--active .guide-wear-stats-icon {
+  border-color: #8ed8ff;
+  background: color-mix(in srgb, #8ed8ff 20%, var(--bg));
+}
+
+.guide-wear-stat--air.guide-wear-stat--active {
+  border-color: #8ed8ff;
+  background: color-mix(in srgb, #8ed8ff 16%, var(--bg));
+}
+
+.guide-wear-stat--fire.guide-wear-stat--active .guide-wear-stat-value {
+  color: #ff8a65;
+}
+
+.guide-wear-stat--fire.guide-wear-stat--active .guide-wear-stats-icon {
+  border-color: #ff8a65;
+  background: color-mix(in srgb, #ff8a65 20%, var(--bg));
+}
+
+.guide-wear-stat--fire.guide-wear-stat--active {
+  border-color: #ff8a65;
+  background: color-mix(in srgb, #ff8a65 16%, var(--bg));
+}
+
+.guide-wear-stat--water.guide-wear-stat--active .guide-wear-stat-value {
+  color: #72b6ff;
+}
+
+.guide-wear-stat--water.guide-wear-stat--active .guide-wear-stats-icon {
+  border-color: #72b6ff;
+  background: color-mix(in srgb, #72b6ff 20%, var(--bg));
+}
+
+.guide-wear-stat--water.guide-wear-stat--active {
+  border-color: #72b6ff;
+  background: color-mix(in srgb, #72b6ff 16%, var(--bg));
+}
+
+.guide-wear-stat--dark.guide-wear-stat--active .guide-wear-stat-value {
+  color: #b18cff;
+}
+
+.guide-wear-stat--dark.guide-wear-stat--active .guide-wear-stats-icon {
+  border-color: #b18cff;
+  background: color-mix(in srgb, #b18cff 20%, var(--bg));
+}
+
+.guide-wear-stat--dark.guide-wear-stat--active {
+  border-color: #b18cff;
+  background: color-mix(in srgb, #b18cff 16%, var(--bg));
+}
+
+.guide-wear-stat--light.guide-wear-stat--active .guide-wear-stat-value {
+  color: #ffd86a;
+}
+
+.guide-wear-stat--light.guide-wear-stat--active .guide-wear-stats-icon {
+  border-color: #ffd86a;
+  background: color-mix(in srgb, #ffd86a 20%, var(--bg));
+}
+
+.guide-wear-stat--light.guide-wear-stat--active {
+  border-color: #ffd86a;
+  background: color-mix(in srgb, #ffd86a 16%, var(--bg));
+}
+
+.guide-wear-stats-icon {
+  width: 1.45rem;
+  height: 1.45rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--tier-accent) 26%, var(--border));
+  background: color-mix(in srgb, var(--tier-accent) 8%, var(--bg));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.guide-wear-stats-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1px;
+}
+
+.guide-wear-stat-value {
+  font-family: "JetBrains Mono", monospace;
+  font-size: clamp(0.7rem, 2.45vw, 0.84rem);
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1;
 }
 
 .guide-wear-level {
@@ -1824,6 +2021,30 @@ a.tab.tab--link:hover {
 
   .guide-wear-row {
     padding: 0.45rem 0.4rem;
+  }
+
+  .guide-wear-stats-list {
+    gap: 0.16rem 0.26rem;
+  }
+
+  .guide-wear-stat {
+    min-width: 2.65rem;
+    padding: 0.14rem 0.3rem;
+    gap: 0.22rem;
+  }
+
+  .guide-wear-stats-icon {
+    width: 1.08rem;
+    height: 1.08rem;
+  }
+
+  .guide-wear-stat-value {
+    font-size: clamp(0.62rem, 2.2vw, 0.74rem);
+  }
+
+  .guide-wear-effect {
+    font-size: clamp(0.58rem, 2vw, 0.68rem);
+    padding: 0.12rem 0.34rem;
   }
 }
 
@@ -2212,6 +2433,8 @@ a.tab.tab--link:hover {
   gap: 0.55rem;
   min-width: 0;
 }
+
+
 
 .lure-shop-icon {
   flex-shrink: 0;
