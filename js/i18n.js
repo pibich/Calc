@@ -391,6 +391,8 @@
       "guide.nether.cost.scrollIII": "Nether Scroll III",
       "guide.nether.cost.scrollIV": "Nether Scroll IV",
       "guide.nether.cost.scrollV": "Nether Scroll V",
+      "guide.nether.cost.bloodScroll": "Blood Scroll",
+      "guide.nether.deepNetherTitle": "Deep Nether",
       "guide.nether.tierEmpty": "No wearables listed for this tier yet.",
       "guide.nether.level": "Requires level {n}",
       "guide.nether.levelUnknown": "Level varies",
@@ -427,6 +429,14 @@
       "guide.nether.item.vikingChainmail": "Viking Chainmail",
       "guide.nether.item.honshuSword": "Honshu Sword",
       "guide.nether.item.doubleHeadedAxes": "Double Headed Axes",
+      "guide.nether.item.stellarScoutHelmet": "Stellar Scout Helmet",
+      "guide.nether.item.thorsArmor": "Thor's Armor",
+      "guide.nether.item.clubOfTheHydra": "Club of the Hydra",
+      "guide.nether.item.mechanicalCrossbow": "Mechanical Crossbow",
+      "guide.nether.item.hopliteShield": "Hoplite Shield",
+      "guide.nether.item.netherShoes": "Nether Shoes",
+      "guide.nether.note.deepWeaponBudget":
+        "Recommended for limited level/budget. If your level/budget is higher, use Club of the Hydra or Mechanical Crossbow.",
     },
     id: {
       "page.title": "Pixel Worlds Tools",
@@ -817,6 +827,8 @@
       "guide.nether.cost.scrollIII": "Nether Scroll III",
       "guide.nether.cost.scrollIV": "Nether Scroll IV",
       "guide.nether.cost.scrollV": "Nether Scroll V",
+      "guide.nether.cost.bloodScroll": "Blood Scroll",
+      "guide.nether.deepNetherTitle": "Deep Nether",
       "guide.nether.tierEmpty": "Belum ada wearable untuk tier ini.",
       "guide.nether.level": "Butuh level {n}",
       "guide.nether.levelUnknown": "Level bervariasi",
@@ -853,6 +865,14 @@
       "guide.nether.item.vikingChainmail": "Viking Chainmail",
       "guide.nether.item.honshuSword": "Honshu Sword",
       "guide.nether.item.doubleHeadedAxes": "Double Headed Axes",
+      "guide.nether.item.stellarScoutHelmet": "Stellar Scout Helmet",
+      "guide.nether.item.thorsArmor": "Thor's Armor",
+      "guide.nether.item.clubOfTheHydra": "Club of the Hydra",
+      "guide.nether.item.mechanicalCrossbow": "Mechanical Crossbow",
+      "guide.nether.item.hopliteShield": "Hoplite Shield",
+      "guide.nether.item.netherShoes": "Nether Shoes",
+      "guide.nether.note.deepWeaponBudget":
+        "Disarankan untuk level/budget terbatas. Jika level/budget lebih tinggi, gunakan Club of the Hydra atau Mechanical Crossbow.",
     },
   };
 

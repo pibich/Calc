@@ -170,7 +170,7 @@
     tip.append(gearTitle, gearBody);
   }
 
-  const GUIDE_NETHER_TIER_ORDER = [1, 2, 3, 4, 5];
+  const GUIDE_NETHER_TIER_ORDER = [1, 2, 3, 4, 5, 6];
 
   const GUIDE_NETHER_TIER_ACCENT = {
     1: "#94a3b8",
@@ -178,6 +178,7 @@
     3: "#38bdf8",
     4: "#f59e0b",
     5: "#f87171",
+    6: "#a78bfa",
   };
 
   /** Level minimum yang ditampilkan di subtitle tiap tier Nether. */
@@ -187,6 +188,7 @@
     3: 25,
     4: 35,
     5: 50,
+    6: 40,
   };
 
   const GUIDE_NETHER_TIER_COST = {
@@ -195,6 +197,7 @@
     3: { nameKey: "guide.nether.cost.scrollIII", icon: "assets/Nether_Scroll_III.webp" },
     4: { nameKey: "guide.nether.cost.scrollIV", icon: "assets/Nether_Scroll_IV.webp" },
     5: { nameKey: "guide.nether.cost.scrollV", icon: "assets/Nether_Scroll_V.webp" },
+    6: { nameKey: "guide.nether.cost.bloodScroll", icon: "assets/Blood_Scroll.webp" },
   };
 
   const GUIDE_NETHER_STAT_ICON_ORDER = [
@@ -261,7 +264,7 @@
     "guide.nether.item.vikingLeatherShoes": {
       lvl: 0,
       damage: 0,
-      armor: 0,
+      armor: 2,
       critical: 0,
       earth: 0,
       air: 0,
@@ -269,6 +272,18 @@
       water: 0,
       dark: 0,
       light: 0,
+    },
+    "guide.nether.item.netherShoes": {
+      lvl: 20,
+      damage: 0,
+      armor: 4,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 10,
     },
     "guide.nether.item.t2ChainmailVikingHelmet": {
       lvl: 13,
@@ -418,6 +433,66 @@
       lvl: 43,
       damage: 191,
       armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.stellarScoutHelmet": {
+      lvl: 67,
+      damage: 0,
+      armor: 22,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 10,
+      water: 0,
+      dark: 10,
+      light: 0,
+    },
+    "guide.nether.item.thorsArmor": {
+      lvl: 47,
+      damage: 0,
+      armor: 30,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.clubOfTheHydra": {
+      lvl: 70,
+      damage: 245,
+      armor: 0,
+      critical: 2,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.mechanicalCrossbow": {
+      lvl: 38,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 180,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.nether.item.hopliteShield": {
+      lvl: 10,
+      damage: 0,
+      armor: 8,
       critical: 0,
       earth: 0,
       air: 0,
@@ -1502,10 +1577,10 @@
         icon: "assets/Kite_Shield.webp",
       },
       {
-        nameKey: "guide.nether.item.vikingLeatherShoes",
-        level: 0,
+        nameKey: "guide.nether.item.netherShoes",
+        level: 20,
         slotId: "shoes",
-        icon: "assets/Viking_Leather_Shoes.webp",
+        icon: "assets/Nether_Shoes.webp",
       },
     ],
     2: [
@@ -1546,10 +1621,10 @@
         icon: "assets/Scutum_Shield.webp",
       },
       {
-        nameKey: "guide.nether.item.vikingLeatherShoes",
-        level: 0,
+        nameKey: "guide.nether.item.netherShoes",
+        level: 20,
         slotId: "shoes",
-        icon: "assets/Viking_Leather_Shoes.webp",
+        icon: "assets/Nether_Shoes.webp",
       },
     ],
     3: [
@@ -1678,10 +1753,77 @@
         icon: "assets/Scutum_Shield.webp",
       },
       {
-        nameKey: "guide.nether.item.vikingLeatherShoes",
-        level: 0,
+        nameKey: "guide.nether.item.netherShoes",
+        level: 20,
         slotId: "shoes",
-        icon: "assets/Viking_Leather_Shoes.webp",
+        icon: "assets/Nether_Shoes.webp",
+      },
+    ],
+    6: [
+      {
+        nameKey: "guide.nether.item.t3GeneralsLegionaryHelmet",
+        level: 23,
+        altGroup: "deepHelmet",
+        slotId: "hats",
+        icon: "assets/General%2527s_Legionary_Helmet.webp",
+      },
+      {
+        nameKey: "guide.nether.item.stellarScoutHelmet",
+        level: 67,
+        altGroup: "deepHelmet",
+        slotId: "hats",
+        icon: "assets/Stellar_Scout_Helmet.webp",
+      },
+      {
+        nameKey: "guide.nether.item.thorsArmor",
+        level: 47,
+        slotId: "shirts",
+        icon: "assets/Thor%27s_Armor.webp",
+      },
+      {
+        nameKey: "guide.nether.item.t3BrownLeatherPants",
+        level: 13,
+        slotId: "pants",
+        icon: "assets/Brown_Leather_Pants.webp",
+      },
+      {
+        nameKey: "guide.nether.item.clubOfTheHydra",
+        level: 70,
+        altGroup: "deepWeapon",
+        slotId: "weapon",
+        icon: "assets/Club_of_the_Hydra.webp",
+      },
+      {
+        nameKey: "guide.nether.item.mechanicalCrossbow",
+        level: 38,
+        altGroup: "deepWeapon",
+        slotId: "weapon",
+        icon: "assets/Mechanical_Crossbow.webp",
+      },
+      {
+        nameKey: "guide.nether.item.doubleHeadedAxes",
+        level: 43,
+        slotId: "weapon",
+        icon: "assets/Double_Headed_Axe.webp",
+        extraNoteKey: "guide.nether.note.deepWeaponBudget",
+      },
+      {
+        nameKey: "guide.nether.item.leatherGloves",
+        level: 7,
+        slotId: "gloves",
+        icon: "assets/Leather_Gloves.webp",
+      },
+      {
+        nameKey: "guide.nether.item.hopliteShield",
+        level: 10,
+        slotId: "shield",
+        icon: "assets/Hoplite_Shield.webp",
+      },
+      {
+        nameKey: "guide.nether.item.netherShoes",
+        level: 20,
+        slotId: "shoes",
+        icon: "assets/Nether_Shoes.webp",
       },
     ],
   };
@@ -1987,7 +2129,10 @@
 
       const title = document.createElement("h3");
       title.className = "guide-nether-tier-title";
-      title.textContent = t("guide.nether.netherLevelTitle", { n: String(tier) });
+      title.textContent =
+        tier === 6
+          ? t("guide.nether.deepNetherTitle")
+          : t("guide.nether.netherLevelTitle", { n: String(tier) });
 
       const sub = document.createElement("p");
       sub.className = "guide-nether-tier-sub";
@@ -2015,9 +2160,7 @@
         empty.textContent = t("guide.nether.tierEmpty");
         list.appendChild(empty);
       } else {
-        items.forEach((item) => {
-          list.appendChild(renderWearRow(item, accent));
-        });
+        renderItemRows(list, items, accent);
       }
 
       attachTierDropdown(head, list, false, grid);
