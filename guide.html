@@ -13,7 +13,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <meta name="description" content="Pixel Worlds Tools — guides for Nether, Mining, and Fishing." />
+    <meta
+      name="description"
+      content="Pixel Worlds Tools — guides for Nether, Mining, Fishing, Farming, and Massing."
+    />
     <title>Guide — Pixel Worlds Tools</title>
     <link rel="icon" href="assets/icon1.png" type="image/png" />
     <link rel="apple-touch-icon" href="assets/icon1.png" />
@@ -158,6 +161,12 @@
             <button type="button" class="guide-subtab" role="tab" data-guide-sub="fishing" aria-selected="false">
               <span data-i18n="guide.subtab.fishing">Fishing</span>
             </button>
+            <button type="button" class="guide-subtab" role="tab" data-guide-sub="farming" aria-selected="false">
+              <span data-i18n="guide.subtab.farming">Farming</span>
+            </button>
+            <button type="button" class="guide-subtab" role="tab" data-guide-sub="massing" aria-selected="false">
+              <span data-i18n="guide.subtab.massing">Massing</span>
+            </button>
           </nav>
 
           <div
@@ -173,6 +182,12 @@
           </div>
           <div id="guide-view-fishing" class="guide-subpanel" hidden role="tabpanel" data-guide-panel="fishing">
             <div id="guide-fishing-root"></div>
+          </div>
+          <div id="guide-view-farming" class="guide-subpanel" hidden role="tabpanel" data-guide-panel="farming">
+            <div id="guide-farming-root"></div>
+          </div>
+          <div id="guide-view-massing" class="guide-subpanel" hidden role="tabpanel" data-guide-panel="massing">
+            <div id="guide-massing-root"></div>
           </div>
         </section>
       </main>

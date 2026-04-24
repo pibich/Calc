@@ -80,7 +80,7 @@
       "tab.lure": "Lure Shop",
       "tab.lureAria": "Lure shop profit calculator",
       "tab.guide": "Guide",
-      "tab.guideAria": "Guides: Nether, Mining, Fishing",
+      "tab.guideAria": "Guides: Nether, Mining, Fishing, Farming, Massing",
       "tab.profile": "Profile",
       "tab.profileAria": "Profile — account page",
       "tab.recruit": "Clan Recruit",
@@ -215,6 +215,51 @@
       "guide.subtab.nether": "Nether",
       "guide.subtab.mining": "Mining",
       "guide.subtab.fishing": "Fishing",
+      "guide.subtab.farming": "Farming",
+      "guide.subtab.massing": "Massing",
+      "guide.farming.introTitle": "Farming overview",
+      "guide.farming.introBody":
+        "Farmables are grouped by goal: starter income in Bytes, setups for massing, and late options tilted toward gem farming. Use the notes under each column when choosing what to build.",
+      "guide.farming.tipTitle": "Tip",
+      "guide.farming.tipBody":
+        "Add .webp files under assets/farming/ using the same filenames as in the project to show icons here instead of letter placeholders.",
+      "guide.farming.recommendationsHeading": "Recommended farmables",
+      "guide.farming.stage.early": "Early",
+      "guide.farming.stage.earlyDesc":
+        "These farmables suit beginners building a starter budget. Outputs can be sold for Bytes at the PWE Terminal.",
+      "guide.farming.stage.mid": "Mid",
+      "guide.farming.stage.midDesc":
+        "These farmables suit players focused on massing — bulk output and scalable production.",
+      "guide.farming.stage.late": "Late",
+      "guide.farming.stage.lateDesc":
+        "These farmables suit players who prioritize farming gems alongside other late-game goals.",
+      "guide.farming.item.magicStuff": "Magic Stuff",
+      "guide.farming.item.gemSoil": "Gem Soil",
+      "guide.farming.item.lava": "Lava",
+      "guide.farming.item.grass": "Grass",
+      "guide.farming.item.hangingLeaves": "Hanging Leaves",
+      "guide.farming.item.water": "Water",
+      "guide.farming.item.clearWater": "Clear Water",
+      "guide.farming.item.woodBlock": "Wood Block",
+      "guide.farming.item.woodenPlatform": "Wooden Platform",
+      "guide.farming.item.metalPlatform": "Metal Platform",
+      "guide.farming.item.fireTrap": "Fire Trap",
+      "guide.farming.item.bbb": "BBB",
+      "guide.farming.item.spikeBomb": "Spike Bomb",
+      "guide.farming.item.hoveringMine": "Hovering Mine",
+      "guide.massing.pageHeading": "Massing",
+      "guide.massing.basicsTitle": "What is massing?",
+      "guide.massing.basicsBody":
+        "Massing means crafting or producing the same item in large stacks — repeat recipes until you have volume for vending, trades, or guild stock. The aim is steady Bytecoin or gem flow from bulk output, not one-off crafts.",
+      "guide.massing.craftTitle": "Crafting pipeline",
+      "guide.massing.craftBody":
+        "Choose one or two recipes with reliable margins: gather inputs in bulk, craft in batches, and track material cost per unit. Use storage worlds or sorted chest rows so ingredients and outputs stay readable.",
+      "guide.massing.sellTitle": "Selling and pricing",
+      "guide.massing.sellBody":
+        "Price slightly under busy shops for faster turnover, or hold stock when demand spikes after an update. PWE suits large volume; vending shops work when you want passive sales while you play elsewhere.",
+      "guide.massing.tipTitle": "Tip",
+      "guide.massing.tipBody":
+        "Avoid tying all wealth in unsold stock — keep a buffer for seeds, keys, and repairs. If sales slow, rotating the product often beats endless price cuts.",
       "guide.subtabDisabledTitle": "Coming soon",
       "guide.soon": "This section is coming soon.",
       "guide.common.or": "OR",
@@ -234,10 +279,16 @@
       "guide.mining.cost.platinumMineKeyLvl5": "Platinum Mine Key (LVL 5)",
       "guide.mining.infoTitle": "Why Mining?",
       "guide.mining.overviewText":
-        "Mining is excellent in the mid game for farming Bytecoins quickly. Level 1 has a simpler rotation, while Levels 2-5 are more complex but offer higher profit with increased difficulty.",
+        "Mining is one of the strongest mid-game activities for building steady profit. Main flow: sell next-level keys from Nuggets, recover capital through Gemstones -> gems, and treat Mining Coin as exit bonus for gacha.",
       "guide.mining.tipTitle": "Tip",
       "guide.mining.tipText":
-        "It is highly recommended to start mining at a minimum of level 30/35+ so you can maximize your gear usage. For Mining Level 3 and above, bring a Healing Potion (minimum level 25) if you feel overwhelmed. You can craft it at the Magic Cauldron or buy it from the PWE Terminal.",
+        "Start around level 35+ so your gear setup is already effective. For Mining Level 3 and above, bring a Healing Potion (minimum level 25) to stabilize runs when pressure is high.",
+      "guide.mining.gearTitle": "Gear effects",
+      "guide.mining.gearText":
+        "Bonuses of the same type can stack as long as they come from different gear slots (using 2-3x similar effects is usually enough). If the effect type and slot are the same, the bonus amount is usually the same; the main differences are price, crafting materials, and extra armor stats.",
+      "guide.mining.importantTitle": "Important",
+      "guide.mining.importantText":
+        "Your main priority is selling the next-level key. For example, when you run Mining Level 3 and get Nuggets for Level 4 keys, the item you sell is the Level 4 key. Your core profit comes from Mining Coin (for gacha) and from converting Gemstones into gems.",
       "guide.fishing.category.ingredient": "Fishing Ingredient",
       "guide.fishing.category.gems": "Fishing Gems",
       "guide.fishing.card.ingredient": "Ingredient Setup",
@@ -246,10 +297,16 @@
       "guide.fishing.card.gemsLate": "Late Game (Halibut/Tuna/Carp/Sea Angler)",
       "guide.fishing.infoTitle": "Information",
       "guide.fishing.overviewText":
-        "Fishing is very good in the mid to late game for farming gems and Bytecoins quickly. There are several stages you can follow to start fishing more effectively.",
+        "Fishing is very good in the mid to late game for farming gems and Bytecoins quickly, with several progression stages you can follow to optimize your setup.",
       "guide.fishing.tipTitle": "Tip",
       "guide.fishing.tipText":
-        "It is highly recommended to start fishing at a minimum of level 40/45+ so your gear usage is more optimal.",
+        "It is highly recommended to start fishing at level 45+ so you can maximize your gear usage.",
+      "guide.fishing.gearTitle": "Gear effects",
+      "guide.fishing.gearText":
+        "Bonuses of the same type can stack as long as they come from different gear slots (using 2-3x similar effects is usually enough). If the effect type and slot are the same, the bonus amount is usually the same; the main differences are price, crafting materials, and extra armor stats.",
+      "guide.fishing.importantTitle": "Important",
+      "guide.fishing.importantText":
+        "Prioritize buying Lures using your own gems, then rotate your capital from those gems: buy high-value Lures to resell and fish using cheaper Lures.",
       "guide.fishing.lureTitle": "Lure",
       "guide.fishing.lureLabel": "Recommended lure",
       "guide.fishing.stagePending": "Build is being prepared for this stage.",
@@ -305,24 +362,27 @@
       "guide.mining.item.sturdyMiningHelmet": "Sturdy Mining Helmet",
       "guide.mining.targetLabel": "Target: {target}",
       "guide.mining.target.tier1":
-        "Take as many Bronze Nuggets as possible while prioritizing a quick exit; clearing all nuggets/gemstones is optional.",
+        "Prioritize finding the exit as fast as possible. Get Nuggets or Gemstones as many as you can along the way.",
       "guide.mining.target.tier2":
-        "At least 35-50 Nuggets + 12-20 Gemstones.",
+        "Prioritize Silver Nugget for Level 3 key stock/sales, and collect Emerald gemstone to recover capital via gems. If you exit via the exit door, you get a bonus of +20 Nuggets and Mining Coin (for gacha).",
       "guide.mining.target.tier3":
-        "At least 35-50 Nuggets + 12-20 Gemstones.",
+        "Prioritize Gold Nugget for Level 4 key stock/sales, and collect Sapphire gemstone to recover capital via gems. If you exit via the exit door, you get a bonus of +20 Nuggets and Mining Coin (for gacha).",
       "guide.mining.target.tier4":
-        "At least 35-50 Nuggets + 12-20 Gemstones.",
+        "Prioritize Platinum Nugget for Level 5 key stock/sales, and collect Ruby gemstone to recover capital via gems. If you exit via the exit door, you get a bonus of +20 Nuggets and Mining Coin (for gacha).",
       "guide.mining.target.tier5":
-        "At least 35-50 Nuggets + 12-20 Gemstones.",
+        "Prioritize Dark Nugget to convert into Dark Stone, then collect Diamond gemstone to recover capital via gems. Keep stacking Dark Stone until you have enough to exchange for items sold by the NPC in PIXELMINES. If you exit via the exit door, you get a bonus of +20 Nuggets and Mining Coin (for gacha).",
       "guide.nether.infoTitle": "Why Nether?",
       "guide.nether.overviewText":
         "Nether is excellent for early progression, helping you push your account from around level 5/7 to 25-30+. You also gain exit gems and Nether Crystals for extra value, so even with notable difficulty, the rewards are worth it.",
+      "guide.nether.tipTitle": "Tip",
+      "guide.nether.tipText":
+        "You can level up to around 40-80+ with Nether first, then switch to Mining/Fishing as your main profit method.",
       "guide.nether.combatTitle": "Enemies & elements",
       "guide.nether.combatText":
         "Nether enemies have specific resistances and weaknesses—learn which apply to each pull. Many resist dark and fire; favor light and water to land bigger hits. Flat damage is still shaved by their armor, so stacking critical chance pays off.",
-      "guide.nether.partyTipTitle": "Tip",
+      "guide.nether.partyTipTitle": "How to profit?",
       "guide.nether.partyTip":
-        "Forming a party is strongly recommended for Nether runs—they are faster and more efficient.",
+        "As mentioned above, Nether mainly focuses on account leveling and multiplying gems. Since Nether Crystals are now untradeable like Gemstones and Fish, your profit is mostly from exit gem bonuses and broken Nether Crystals.",
       "guide.nether.netherLevelTitle": "Nether Level {n}",
       "guide.nether.minimumLevel": "Minimum Level {n}",
       "guide.nether.costLabel": "Cost",
@@ -446,7 +506,7 @@
       "tab.lure": "Lure Shop",
       "tab.lureAria": "Kalkulator profit shop lure",
       "tab.guide": "Guide",
-      "tab.guideAria": "Panduan Nether, Mining, Fishing",
+      "tab.guideAria": "Panduan Nether, Mining, Fishing, Farming, Massing",
       "tab.profile": "Profil",
       "tab.profileAria": "Profil — halaman akun",
       "tab.recruit": "Clan Recruit",
@@ -581,6 +641,51 @@
       "guide.subtab.nether": "Nether",
       "guide.subtab.mining": "Mining",
       "guide.subtab.fishing": "Fishing",
+      "guide.subtab.farming": "Farming",
+      "guide.subtab.massing": "Massing",
+      "guide.farming.introTitle": "Ringkasan farming",
+      "guide.farming.introBody":
+        "Farmable dikelompokkan menurut tujuan: pemula cari Byte, setup untuk massing, dan opsi late untuk condong ke farming gems. Baca catatan di tiap kolom saat memilih yang akan dibangun.",
+      "guide.farming.tipTitle": "Saran",
+      "guide.farming.tipBody":
+        "Letakkan file .webp di assets/farming/ dengan nama file yang sama seperti di proyek agar ikon tampil menggantikan placeholder huruf.",
+      "guide.farming.recommendationsHeading": "Rekomendasi farmable",
+      "guide.farming.stage.early": "Early",
+      "guide.farming.stage.earlyDesc":
+        "Farmable di sini khusus untuk pemula mencari budget awal; hasilnya dapat dijual menjadi Byte di PWE Terminal.",
+      "guide.farming.stage.mid": "Mid",
+      "guide.farming.stage.midDesc":
+        "Farmable di sini khusus untuk pemain yang melakukan massing.",
+      "guide.farming.stage.late": "Late",
+      "guide.farming.stage.lateDesc":
+        "Farmable di sini khusus untuk pemain yang melakukan farming gems.",
+      "guide.farming.item.magicStuff": "Magic Stuff",
+      "guide.farming.item.gemSoil": "Gem Soil",
+      "guide.farming.item.lava": "Lava",
+      "guide.farming.item.grass": "Grass",
+      "guide.farming.item.hangingLeaves": "Hanging Leaves",
+      "guide.farming.item.water": "Water",
+      "guide.farming.item.clearWater": "Clear Water",
+      "guide.farming.item.woodBlock": "Wood Block",
+      "guide.farming.item.woodenPlatform": "Wooden Platform",
+      "guide.farming.item.metalPlatform": "Metal Platform",
+      "guide.farming.item.fireTrap": "Fire Trap",
+      "guide.farming.item.bbb": "BBB",
+      "guide.farming.item.spikeBomb": "Spike Bomb",
+      "guide.farming.item.hoveringMine": "Hovering Mine",
+      "guide.massing.pageHeading": "Massing",
+      "guide.massing.basicsTitle": "Massing itu apa?",
+      "guide.massing.basicsBody":
+        "Massing biasanya berarti craft atau produksi item yang sama dalam jumlah besar — ulang resep sampai dapat stapel untuk vending, trade, atau stok guild. Tujuannya aliran Bytecoin atau gems yang stabil dari output massal, bukan craft sekali jalan.",
+      "guide.massing.craftTitle": "Alur crafting",
+      "guide.massing.craftBody":
+        "Pilih satu atau dua resep dengan margin oke: kumpulkan bahan massal, craft berkelompok, dan catat biaya bahan per unit. Pakai world penyimpanan atau chest berurutan supaya bahan dan hasil mudah dibaca.",
+      "guide.massing.sellTitle": "Jualan dan harga",
+      "guide.massing.sellBody":
+        "Harga sedikit di bawah shop ramai untuk putar stok cepat, atau tahan jual saat demand melonjak setelah update. PWE cocok untuk volume besar; vending enak untuk jualan pasif sambil main di tempat lain.",
+      "guide.massing.tipTitle": "Saran",
+      "guide.massing.tipBody":
+        "Jangan kunci semua kekayaan di stok yang belum laku — sisakan buffer untuk seed, kunci, dan repair. Kalau jualan melambat, ganti produk seringkali lebih sehat daripada potong harga terus-menerus.",
       "guide.subtabDisabledTitle": "Segera hadir",
       "guide.soon": "Bagian ini akan ditambahkan nanti.",
       "guide.common.or": "OR",
@@ -600,10 +705,16 @@
       "guide.mining.cost.platinumMineKeyLvl5": "Platinum Mine Key (LVL 5)",
       "guide.mining.infoTitle": "Informasi",
       "guide.mining.overviewText":
-        "Mining sangat bagus dilakukan di pertengahan permainan untuk mencari Bytecoin dengan cepat. Mining level 1 punya rotasi yang lebih sederhana, sedangkan level 2-5 lebih kompleks namun menawarkan profit yang lebih besar dengan tingkat kesulitan yang ikut meningkat.",
+        "Mining adalah salah satu metode profit yang bagus di tahap mid-game. Dengan modal yang tidak terlalu tinggi, kamu bisa memutar modal untuk profit lebih cepat, tetapi tingkat kesulitannya kurang lebih setara dengan Nether.",
       "guide.mining.tipTitle": "Saran",
       "guide.mining.tipText":
-        "Sangat dianjurkan memulai mining minimal pada level 30/35+ agar penggunaan gear lebih maksimal. Untuk Mining level 3 ke atas, bawa Healing Potion (minimum level 25) jika kamu merasa kesulitan. Kamu bisa membuatnya sendiri di Magic Cauldron atau membelinya di PWE Terminal.",
+        "Sangat disarankan mulai mining dari level 35+ supaya penggunaan gear lebih maksimal. Jika merasa kesulitan di Mining Level 3 ke atas, bawa Healing Potion (syarat level 25) agar tidak mati saat HP rendah.",
+      "guide.mining.gearTitle": "Efek Gear",
+      "guide.mining.gearText":
+        "Bonus dengan tipe yang sama bisa ditumpuk selama berasal dari slot gear yang berbeda (gunakan 2-3x efek serupa sudah cukup). Jika jenis efek dan slotnya sama, besaran bonus biasanya sama; pembeda utamanya harga karena bahan craft berbeda dan stat tambahan armor.",
+      "guide.mining.importantTitle": "Cara Profit?",
+      "guide.mining.importantText":
+        "Prioritas kamu adalah menjual key level berikutnya. Contohnya, saat kamu mining Level 3 dan mendapat Nugget untuk key Level 4, yang kamu jual adalah key Level 4. Profit utamanya berasal dari Mining Coin (untuk gacha) dan dari Gemstone yang dikonversi menjadi gems.",
       "guide.fishing.category.ingredient": "Fishing Ingredient",
       "guide.fishing.category.gems": "Fishing Gems",
       "guide.fishing.card.ingredient": "Setup Ingredient",
@@ -612,10 +723,16 @@
       "guide.fishing.card.gemsLate": "Late Game (Halibut/Tuna/Carp/Sea Angler)",
       "guide.fishing.infoTitle": "Informasi",
       "guide.fishing.overviewText":
-        "Fishing sangat bagus dilakukan di pertengahan hingga akhir permainan untuk mencari gems dan Bytecoin dengan cepat. Ada beberapa tahapan yang bisa kamu ikuti agar hasil fishing lebih maksimal.",
+        "Fishing adalah salah satu metode profit yang bagus pada tahap mid-late game. Dengan modal yang lumayan tinggi, kamu bisa memutar modal lebih cepat dibanding Nether/Mining. Tingkat kesulitannya juga tidak terlalu susah, tetapi kekurangannya waktu memancing tergolong lama.",
       "guide.fishing.tipTitle": "Saran",
       "guide.fishing.tipText":
-        "Sangat dianjurkan memulai fishing minimal pada level 40/45+ agar penggunaan gear lebih maksimal.",
+        "Sangat dianjurkan memulai fishing pada level 45+ agar penggunaan gear lebih maksimal.",
+      "guide.fishing.gearTitle": "Efek Gear",
+      "guide.fishing.gearText":
+        "Bonus dengan tipe yang sama bisa ditumpuk selama berasal dari slot gear yang berbeda (gunakan 2-3x efek serupa sudah cukup). Jika jenis efek dan slotnya sama, besaran bonus biasanya sama; pembeda utamanya harga karena bahan craft berbeda dan stat tambahan armor.",
+      "guide.fishing.importantTitle": "Cara Profit?",
+      "guide.fishing.importantText":
+        "Cara 1 (Beli Lure via Gems): beli Lure pakai gems sendiri, lalu pancing ikan untuk dijual menjadi gems. Putar gems hasil jual ikan untuk beli Lure lagi; Lure mahal bisa dijual, sedangkan Lure murah dipakai memancing. Cara 2 (Beli Lure via Bytecoin): jika gems dari tahap awal sudah diputar atau kamu memilih menjual semua Lure, lanjut beli Lure via Bytecoin lalu ulangi pola yang sama.",
       "guide.fishing.lureTitle": "Lure",
       "guide.fishing.lureLabel": "Lure yang direkomendasikan",
       "guide.fishing.stagePending": "Setup untuk tahap ini sedang disiapkan.",
@@ -671,24 +788,27 @@
       "guide.mining.item.sturdyMiningHelmet": "Sturdy Mining Helmet",
       "guide.mining.targetLabel": "Target: {target}",
       "guide.mining.target.tier1":
-        "Ambil Bronze Nugget sebanyak mungkin sambil fokus cari jalan keluar secepatnya, tidak wajib clear semua nugget/gemstone.",
+        "Prioritas mencari exit lebih cepat, dapatkan Nugget ataupun Gemstone sedapatnya saja. Jika kalian berhasil exit via door exit, kalian akan mendapatkan bonus 20 Nugget.",
       "guide.mining.target.tier2":
-        "Setidaknya 35-50 Nugget + 12-20 Gemstone.",
+        "Prioritaskan Silver Nugget untuk stok/jualan key Level 3, lalu ambil Gemstone (Emerald) untuk membalikkan modal lewat gems. Jika kalian berhasil exit via door exit, kalian akan mendapatkan bonus 20 Nugget + Mining Coin (untuk gacha).",
       "guide.mining.target.tier3":
-        "Setidaknya 35-50 Nugget + 12-20 Gemstone.",
+        "Prioritaskan Gold Nugget untuk stok/jualan key Level 4, lalu ambil Gemstone (Sapphire) untuk membalikkan modal lewat gems. Jika kalian berhasil exit via door exit, kalian akan mendapatkan bonus 20 Nugget + Mining Coin (untuk gacha).",
       "guide.mining.target.tier4":
-        "Setidaknya 35-50 Nugget + 12-20 Gemstone.",
+        "Prioritaskan Platinum Nugget untuk stok/jualan key Level 5, lalu ambil Gemstone (Ruby) untuk membalikkan modal lewat gems. Jika kalian berhasil exit via door exit, kalian akan mendapatkan bonus 20 Nugget + Mining Coin (untuk gacha).",
       "guide.mining.target.tier5":
-        "Setidaknya 35-50 Nugget + 12-20 Gemstone.",
+        "Prioritaskan Dark Nugget untuk dijadikan Dark Stone, lalu ambil Gemstone (Diamond) untuk membalikkan modal lewat gems. Kumpulkan Dark Stone sampai cukup untuk ditukar dengan item yang dijual NPC pada world PIXELMINES. Jika kalian berhasil exit via door exit, kalian akan mendapatkan bonus 20 Nugget + Mining Coin (untuk gacha).",
       "guide.nether.infoTitle": "Informasi",
       "guide.nether.overviewText":
-        "Nether sangat bagus dilakukan di awal permainan untuk menaikkan level akun dari sekitar level 5/7 ke 25-30+. Selain itu, kamu juga bisa mendapatkan exit gems dan Nether Crystal sebagai bonus tambahan. Meski tingkat kesulitannya cukup tinggi, hasil yang didapat sepadan.",
+        "Nether adalah salah satu metode profit yang cukup membantu di awal permainan. Walaupun fokus utamanya bukan Bytecoin, Nether sangat bagus untuk menaikkan level akun sekaligus mencari gems.",
+      "guide.nether.tipTitle": "Saran",
+      "guide.nether.tipText":
+        "Kalian bisa leveling sampai sekitar level 40-80+ menggunakan Nether, lalu setelah itu baru fokus ke metode profit Mining/Fishing.",
       "guide.nether.combatTitle": "Musuh & elemen",
       "guide.nether.combatText":
         "Monster di Nether punya resistensi dan kelemahan masing-masing—perhatikan kombinasinya. Banyak musuh resist terhadap elemen dark dan api; andalkan elemen light dan water agar damage kamu lebih besar. Flat damage tetap akan dipotong oleh armor mereka, jadi critical chance tinggi sangat membantu.",
-      "guide.nether.partyTipTitle": "Saran",
+      "guide.nether.partyTipTitle": "Cara Profit?",
       "guide.nether.partyTip":
-        "Sangat dianjurkan membuat party jika ingin melakukan nether agar lebih cepat dan efisien.",
+        "Seperti disebutkan di atas, Nether berfokus untuk leveling akun dan menggandakan gems. Terlebih sekarang Nether Crystal dibuat untradeable, sama seperti Gemstones dan Fish. Jadi, sumber profit utamanya lebih condong ke bonus exit dan Nether Crystal yang kamu break.",
       "guide.nether.netherLevelTitle": "Nether Level {n}",
       "guide.nether.minimumLevel": "Minimum Level {n}",
       "guide.nether.costLabel": "Biaya",

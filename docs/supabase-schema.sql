@@ -77,6 +77,7 @@ create index if not exists clan_recruitment_posts_created_at_idx
 create or replace function public.set_clan_recruitment_updated_at()
 returns trigger
 language plpgsql
+set search_path = pg_catalog, public
 as $$
 begin
   new.updated_at = now();

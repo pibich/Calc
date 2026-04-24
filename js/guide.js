@@ -6,12 +6,157 @@
   const netherRoot = document.getElementById("guide-nether-root");
   const miningRoot = document.getElementById("guide-mining-root");
   const fishingRoot = document.getElementById("guide-fishing-root");
-  if (!netherRoot && !miningRoot && !fishingRoot) return;
+  const farmingRoot = document.getElementById("guide-farming-root");
+  const massingRoot = document.getElementById("guide-massing-root");
+  if (!netherRoot && !miningRoot && !fishingRoot && !farmingRoot && !massingRoot)
+    return;
 
   function t(key, vars) {
     if (typeof PWI18N === "undefined") return key;
     return PWI18N.t(key, vars);
   }
+
+  const GUIDE_MASSING_TEXT_BLOCKS = [
+    { titleKey: "guide.massing.basicsTitle", bodyKey: "guide.massing.basicsBody" },
+    { titleKey: "guide.massing.craftTitle", bodyKey: "guide.massing.craftBody" },
+    { titleKey: "guide.massing.sellTitle", bodyKey: "guide.massing.sellBody" },
+    { titleKey: "guide.massing.tipTitle", bodyKey: "guide.massing.tipBody" },
+  ];
+
+  function appendGuideTextBlock(parent, titleKey, bodyKey) {
+    const block = document.createElement("aside");
+    block.className = "guide-nether-tip";
+    block.setAttribute("role", "note");
+    const h = document.createElement("h4");
+    h.className = "guide-nether-tip__title";
+    h.setAttribute("data-i18n", titleKey);
+    h.textContent = t(titleKey);
+    const p = document.createElement("p");
+    p.className = "guide-nether-tip__text";
+    p.setAttribute("data-i18n", bodyKey);
+    p.textContent = t(bodyKey);
+    block.append(h, p);
+    parent.appendChild(block);
+  }
+
+  function renderGuideTextSections(root, pageHeadingKey, blocks) {
+    if (!root) return;
+    root.innerHTML = "";
+    const wrap = document.createElement("div");
+    wrap.className = "guide-nether-tiers-wrap";
+    const h = document.createElement("h3");
+    h.className = "guide-fishing-section-title";
+    h.setAttribute("data-i18n", pageHeadingKey);
+    h.textContent = t(pageHeadingKey);
+    wrap.appendChild(h);
+    blocks.forEach(function (b) {
+      appendGuideTextBlock(wrap, b.titleKey, b.bodyKey);
+    });
+    root.appendChild(wrap);
+  }
+
+  /** Farmable picks by progression; `icon` paths under assets/farming/ (optional until files exist). */
+  const GUIDE_FARMING_STAGE_ORDER = ["early", "mid", "late"];
+
+  const GUIDE_FARMING_STAGE_META = {
+    early: {
+      titleKey: "guide.farming.stage.early",
+      descKey: "guide.farming.stage.earlyDesc",
+      accent: "#94a3b8",
+      badge: "E",
+    },
+    mid: {
+      titleKey: "guide.farming.stage.mid",
+      descKey: "guide.farming.stage.midDesc",
+      accent: "#38bdf8",
+      badge: "M",
+    },
+    late: {
+      titleKey: "guide.farming.stage.late",
+      descKey: "guide.farming.stage.lateDesc",
+      accent: "#f59e0b",
+      badge: "L",
+    },
+  };
+
+  const GUIDE_FARMING_BY_STAGE = {
+    early: [
+      {
+        nameKey: "guide.farming.item.magicStuff",
+        icon: "assets/farming/magic_stuff.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.gemSoil",
+        icon: "assets/farming/gem_soil.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.lava",
+        icon: "assets/farming/lava.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.grass",
+        icon: "assets/farming/grass.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.hangingLeaves",
+        icon: "assets/farming/hanging_leaves.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.water",
+        icon: "assets/farming/water.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.clearWater",
+        icon: "assets/farming/clear_water.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.woodBlock",
+        icon: "assets/farming/wood_block.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.woodenPlatform",
+        icon: "assets/farming/wooden_platform.webp",
+        hideMetaRow: true,
+      },
+    ],
+    mid: [
+      {
+        nameKey: "guide.farming.item.metalPlatform",
+        icon: "assets/farming/metal_platform.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.fireTrap",
+        icon: "assets/farming/fire_trap.webp",
+        hideMetaRow: true,
+      },
+    ],
+    late: [
+      {
+        nameKey: "guide.farming.item.bbb",
+        icon: "assets/farming/bbb.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.spikeBomb",
+        icon: "assets/farming/spike_bomb.webp",
+        hideMetaRow: true,
+      },
+      {
+        nameKey: "guide.farming.item.hoveringMine",
+        icon: "assets/farming/hovering_mine.webp",
+        hideMetaRow: true,
+      },
+    ],
+  };
 
   function appendGuideGearNote(tip) {
     const gearTitle = document.createElement("h4");
@@ -926,22 +1071,24 @@
       body.appendChild(slotEl);
     }
 
-    const levelEl = document.createElement("div");
-    levelEl.className = "guide-wear-level";
-    if (item.level != null && Number.isFinite(Number(item.level))) {
-      levelEl.textContent = t("guide.nether.level", { n: String(item.level) });
-    } else if (item.noteKey) {
-      levelEl.textContent = t(item.noteKey);
-    } else {
-      levelEl.textContent = t("guide.nether.levelUnknown");
-    }
-    body.appendChild(levelEl);
+    if (!item.hideMetaRow) {
+      const levelEl = document.createElement("div");
+      levelEl.className = "guide-wear-level";
+      if (item.level != null && Number.isFinite(Number(item.level))) {
+        levelEl.textContent = t("guide.nether.level", { n: String(item.level) });
+      } else if (item.noteKey) {
+        levelEl.textContent = t(item.noteKey);
+      } else {
+        levelEl.textContent = t("guide.nether.levelUnknown");
+      }
+      body.appendChild(levelEl);
 
-    if (item.extraNoteKey) {
-      const noteEl = document.createElement("div");
-      noteEl.className = "guide-wear-note";
-      noteEl.textContent = t(item.extraNoteKey);
-      body.appendChild(noteEl);
+      if (item.extraNoteKey) {
+        const noteEl = document.createElement("div");
+        noteEl.className = "guide-wear-note";
+        noteEl.textContent = t(item.extraNoteKey);
+        body.appendChild(noteEl);
+      }
     }
 
     card.append(iconWrap, body);
@@ -1051,6 +1198,16 @@
     overview.setAttribute("data-i18n", "guide.nether.overviewText");
     overview.textContent = t("guide.nether.overviewText");
 
+    const tipTitle = document.createElement("h4");
+    tipTitle.className = "guide-nether-tip__title";
+    tipTitle.setAttribute("data-i18n", "guide.nether.tipTitle");
+    tipTitle.textContent = t("guide.nether.tipTitle");
+
+    const tipBody = document.createElement("p");
+    tipBody.className = "guide-nether-tip__text";
+    tipBody.setAttribute("data-i18n", "guide.nether.tipText");
+    tipBody.textContent = t("guide.nether.tipText");
+
     const combatTitle = document.createElement("h4");
     combatTitle.className = "guide-nether-tip__title";
     combatTitle.setAttribute("data-i18n", "guide.nether.combatTitle");
@@ -1071,7 +1228,7 @@
     partyBody.setAttribute("data-i18n", "guide.nether.partyTip");
     partyBody.textContent = t("guide.nether.partyTip");
 
-    tip.append(infoTitle, overview, combatTitle, combatBody, partyTitle, partyBody);
+    tip.append(infoTitle, overview, tipTitle, tipBody, combatTitle, combatBody, partyTitle, partyBody);
     wrap.appendChild(tip);
 
     const grid = document.createElement("div");
@@ -1238,8 +1395,36 @@
     tipBody.setAttribute("data-i18n", "guide.mining.tipText");
     tipBody.textContent = t("guide.mining.tipText");
 
-    tip.append(infoTitle, overview, tipTitle, tipBody);
-    appendGuideGearNote(tip);
+    const gearTitle = document.createElement("h4");
+    gearTitle.className = "guide-nether-tip__title";
+    gearTitle.setAttribute("data-i18n", "guide.mining.gearTitle");
+    gearTitle.textContent = t("guide.mining.gearTitle");
+
+    const gearBody = document.createElement("p");
+    gearBody.className = "guide-nether-tip__text";
+    gearBody.setAttribute("data-i18n", "guide.mining.gearText");
+    gearBody.textContent = t("guide.mining.gearText");
+
+    const importantTitle = document.createElement("h4");
+    importantTitle.className = "guide-nether-tip__title";
+    importantTitle.setAttribute("data-i18n", "guide.mining.importantTitle");
+    importantTitle.textContent = t("guide.mining.importantTitle");
+
+    const importantBody = document.createElement("p");
+    importantBody.className = "guide-nether-tip__text";
+    importantBody.setAttribute("data-i18n", "guide.mining.importantText");
+    importantBody.textContent = t("guide.mining.importantText");
+
+    tip.append(
+      infoTitle,
+      overview,
+      tipTitle,
+      tipBody,
+      gearTitle,
+      gearBody,
+      importantTitle,
+      importantBody,
+    );
     wrap.appendChild(tip);
 
     const grid = document.createElement("div");
@@ -1399,8 +1584,36 @@
     tipBody.setAttribute("data-i18n", "guide.fishing.tipText");
     tipBody.textContent = t("guide.fishing.tipText");
 
-    tip.append(infoTitle, overview, tipTitle, tipBody);
-    appendGuideGearNote(tip);
+    const gearTitle = document.createElement("h4");
+    gearTitle.className = "guide-nether-tip__title";
+    gearTitle.setAttribute("data-i18n", "guide.fishing.gearTitle");
+    gearTitle.textContent = t("guide.fishing.gearTitle");
+
+    const gearBody = document.createElement("p");
+    gearBody.className = "guide-nether-tip__text";
+    gearBody.setAttribute("data-i18n", "guide.fishing.gearText");
+    gearBody.textContent = t("guide.fishing.gearText");
+
+    const importantTitle = document.createElement("h4");
+    importantTitle.className = "guide-nether-tip__title";
+    importantTitle.setAttribute("data-i18n", "guide.fishing.importantTitle");
+    importantTitle.textContent = t("guide.fishing.importantTitle");
+
+    const importantBody = document.createElement("p");
+    importantBody.className = "guide-nether-tip__text";
+    importantBody.setAttribute("data-i18n", "guide.fishing.importantText");
+    importantBody.textContent = t("guide.fishing.importantText");
+
+    tip.append(
+      infoTitle,
+      overview,
+      tipTitle,
+      tipBody,
+      gearTitle,
+      gearBody,
+      importantTitle,
+      importantBody,
+    );
     wrap.appendChild(tip);
 
     const ingredientTitle = document.createElement("h4");
@@ -1438,10 +1651,137 @@
     fishingRoot.appendChild(wrap);
   }
 
+  function renderGuideFarming() {
+    if (!farmingRoot) return;
+    farmingRoot.innerHTML = "";
+
+    const wrap = document.createElement("div");
+    wrap.className = "guide-nether-tiers-wrap";
+
+    const tip = document.createElement("aside");
+    tip.className = "guide-nether-tip";
+    tip.setAttribute("role", "note");
+
+    const introTitle = document.createElement("h4");
+    introTitle.className = "guide-nether-tip__title";
+    introTitle.setAttribute("data-i18n", "guide.farming.introTitle");
+    introTitle.textContent = t("guide.farming.introTitle");
+
+    const introBody = document.createElement("p");
+    introBody.className = "guide-nether-tip__text";
+    introBody.setAttribute("data-i18n", "guide.farming.introBody");
+    introBody.textContent = t("guide.farming.introBody");
+
+    const tipTitle = document.createElement("h4");
+    tipTitle.className = "guide-nether-tip__title";
+    tipTitle.setAttribute("data-i18n", "guide.farming.tipTitle");
+    tipTitle.textContent = t("guide.farming.tipTitle");
+
+    const tipBody = document.createElement("p");
+    tipBody.className = "guide-nether-tip__text";
+    tipBody.setAttribute("data-i18n", "guide.farming.tipBody");
+    tipBody.textContent = t("guide.farming.tipBody");
+
+    tip.append(introTitle, introBody, tipTitle, tipBody);
+    appendGuideGearNote(tip);
+    wrap.appendChild(tip);
+
+    const recHeading = document.createElement("h3");
+    recHeading.className = "guide-fishing-section-title";
+    recHeading.setAttribute("data-i18n", "guide.farming.recommendationsHeading");
+    recHeading.textContent = t("guide.farming.recommendationsHeading");
+    wrap.appendChild(recHeading);
+
+    const grid = document.createElement("div");
+    grid.className = "guide-nether-tiers";
+    grid.setAttribute("role", "list");
+
+    GUIDE_FARMING_STAGE_ORDER.forEach(function (stage) {
+      const meta = GUIDE_FARMING_STAGE_META[stage];
+      if (!meta) return;
+      const accent = meta.accent || "#5eead4";
+      const col = document.createElement("section");
+      col.className = "guide-nether-tier";
+      col.style.setProperty("--tier-accent", accent);
+      col.setAttribute("role", "listitem");
+
+      const head = document.createElement("header");
+      head.className = "guide-nether-tier-head";
+      head.classList.add("guide-mining-tier-head");
+
+      const badge = document.createElement("div");
+      badge.className = "guide-nether-tier-badge";
+      badge.setAttribute("aria-hidden", "true");
+      setTierBadgeContent(badge, meta.badge, "");
+
+      const titles = document.createElement("div");
+      titles.className = "guide-nether-tier-titles";
+
+      const title = document.createElement("h3");
+      title.className = "guide-nether-tier-title";
+      title.setAttribute("data-i18n", meta.titleKey);
+      title.textContent = t(meta.titleKey);
+      titles.appendChild(title);
+
+      if (meta.descKey) {
+        const desc = document.createElement("p");
+        desc.className = "guide-nether-tier-sub";
+        desc.setAttribute("data-i18n", meta.descKey);
+        desc.textContent = t(meta.descKey);
+        titles.appendChild(desc);
+      }
+
+      head.append(badge, titles);
+
+      const list = document.createElement("div");
+      list.className = "guide-nether-tier-body";
+
+      const items = GUIDE_FARMING_BY_STAGE[stage] || [];
+      if (items.length === 0) {
+        const empty = document.createElement("p");
+        empty.className = "guide-nether-empty";
+        empty.setAttribute("data-i18n", "guide.nether.tierEmpty");
+        empty.textContent = t("guide.nether.tierEmpty");
+        list.appendChild(empty);
+      } else {
+        renderItemRows(list, items, accent);
+      }
+
+      attachTierDropdown(head, list, false, grid);
+      col.append(head, list);
+      grid.appendChild(col);
+    });
+
+    wrap.appendChild(grid);
+    farmingRoot.appendChild(wrap);
+  }
+
+  function renderGuideMassing() {
+    renderGuideTextSections(
+      massingRoot,
+      "guide.massing.pageHeading",
+      GUIDE_MASSING_TEXT_BLOCKS,
+    );
+  }
+
+  function renderGuideComingSoon(root) {
+    if (!root) return;
+    root.innerHTML = "";
+    const wrap = document.createElement("div");
+    wrap.className = "guide-nether-tiers-wrap";
+    appendGuideTextBlock(wrap, "guide.subtabDisabledTitle", "guide.soon");
+    root.appendChild(wrap);
+  }
+
   function renderAndI18n() {
     renderGuideNether();
     renderGuideMining();
     renderGuideFishing();
+    // Temporary rollout: show Coming Soon page only.
+    // renderGuideFarming();
+    // renderGuideMassing();
+    renderGuideComingSoon(farmingRoot);
+    renderGuideComingSoon(massingRoot);
     if (typeof PWI18N !== "undefined") PWI18N.applyI18n();
   }
 
