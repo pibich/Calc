@@ -360,6 +360,7 @@
       "guide.mining.item.deepDwellerShoes": "Deep Dweller Shoes",
       "guide.mining.item.minerGasmask": "Miner Gasmask",
       "guide.mining.item.sturdyMiningHelmet": "Sturdy Mining Helmet",
+      "guide.mining.item.pendantOfTheMoment": "Pendant of the Moment",
       "guide.mining.targetLabel": "Target: {target}",
       "guide.mining.target.tier1":
         "Prioritize finding the exit as fast as possible. Get Nuggets or Gemstones as many as you can along the way.",
@@ -796,6 +797,7 @@
       "guide.mining.item.deepDwellerShoes": "Deep Dweller Shoes",
       "guide.mining.item.minerGasmask": "Miner Gasmask",
       "guide.mining.item.sturdyMiningHelmet": "Sturdy Mining Helmet",
+      "guide.mining.item.pendantOfTheMoment": "Pendant of the Moment",
       "guide.mining.targetLabel": "Target: {target}",
       "guide.mining.target.tier1":
         "Prioritas mencari exit lebih cepat, dapatkan Nugget ataupun Gemstone sedapatnya saja. Jika kalian berhasil exit via door exit, kalian akan mendapatkan bonus 20 Nugget.",

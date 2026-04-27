@@ -684,6 +684,18 @@
       dark: 0,
       light: 0,
     },
+    "guide.mining.item.pendantOfTheMoment": {
+      lvl: 54,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
   };
 
   const GUIDE_FISHING_STATS_BY_NAME_KEY = {
@@ -910,6 +922,7 @@
     "guide.mining.item.deepDwellerPants": "Longer Light Crystal Duration",
     "guide.mining.item.deepDwellerShoes": "Enemy Spawn Indicator",
     "guide.mining.item.sturdyMiningHelmet": "More Extra Gemstones",
+    "guide.mining.item.pendantOfTheMoment": "More Ambient Light",
 
     // Fishing gear effects
     "guide.fishing.item.seadogHat": "Higher Strike Frequency",
@@ -1105,6 +1118,12 @@
         icon: "assets/Miner_Gasmask.webp",
       },
       {
+        nameKey: "guide.mining.item.pendantOfTheMoment",
+        level: 54,
+        slotId: "neck",
+        icon: "assets/Pendant_of_the_Moment.webp",
+      },
+      {
         nameKey: "guide.mining.item.deepDwellerShirt",
         level: 17,
         slotId: "shirts",
@@ -1161,6 +1180,12 @@
         level: 48,
         slotId: "masks",
         icon: "assets/Miner_Gasmask.webp",
+      },
+      {
+        nameKey: "guide.mining.item.pendantOfTheMoment",
+        level: 54,
+        slotId: "neck",
+        icon: "assets/Pendant_of_the_Moment.webp",
       },
       {
         nameKey: "guide.mining.item.deepDwellerShirt",
