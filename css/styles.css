@@ -2263,6 +2263,17 @@ a.tab.tab--link:hover {
   color: color-mix(in srgb, var(--tier-accent) 90%, var(--text));
 }
 
+.guide-fishing-stage-note {
+  margin: 0.45rem 0 0;
+  padding: 0.45rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--tier-accent) 28%, var(--border));
+  background: color-mix(in srgb, var(--tier-accent) 7%, var(--bg));
+  font-size: clamp(0.65rem, 2.2vw, 0.78rem);
+  line-height: 1.45;
+  color: var(--text);
+}
+
 @media (max-width: 32rem) {
   .guide-mining-tier-head {
     flex-wrap: wrap;

@@ -772,6 +772,18 @@
       dark: 0,
       light: 0,
     },
+    "guide.fishing.item.titaniumRodFlawless": {
+      lvl: 50,
+      damage: 100,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
     "guide.fishing.item.carbonFiberRodSuperior": {
       lvl: 75,
       damage: 100,
@@ -904,6 +916,30 @@
       dark: 0,
       light: 0,
     },
+    "guide.fishing.item.rodsterSandals": {
+      lvl: 63,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
+    "guide.fishing.item.rodsterFishbasket": {
+      lvl: 79,
+      damage: 0,
+      armor: 0,
+      critical: 0,
+      earth: 0,
+      air: 0,
+      fire: 0,
+      water: 0,
+      dark: 0,
+      light: 0,
+    },
   };
 
   const GUIDE_GEAR_EFFECT_BY_NAME_KEY = {
@@ -926,23 +962,26 @@
     "guide.mining.item.pendantOfTheMoment": "More Ambient Light",
 
     // Fishing gear effects
-    "guide.fishing.item.seadogHat": "Higher Strike Frequency",
-    "guide.fishing.item.proFisherSuit": "Higher Strike Frequency",
-    "guide.fishing.item.proFisherFaceScarf": "More Ingredient Chance",
-    "guide.fishing.item.bubblePipe": "More Ingredient Chance",
-    "guide.fishing.item.fisherWhistleOptional": "Higher Strike Frequency",
-    "guide.fishing.item.fisherWhistle": "Higher Strike Frequency",
+    "guide.fishing.item.seadogHat": "Strike Frequency Boost",
+    "guide.fishing.item.proFisherSuit": "Strike Frequency Boost",
+    "guide.fishing.item.proFisherFaceScarf": "Ingredient Frequency",
+    "guide.fishing.item.bubblePipe": "Ingredient Frequency",
+    "guide.fishing.item.fisherWhistleOptional": "Strike Frequency Boost",
+    "guide.fishing.item.fisherWhistle": "Strike Frequency Boost",
     "guide.fishing.item.fishingAmulet": "No Lure Loss",
-    "guide.fishing.item.wormNecklace": "Higher Strike Frequency",
-    "guide.fishing.item.rodsterToga": "Slower Fish",
+    "guide.fishing.item.wormNecklace": "Strike Frequency Boost",
+    "guide.fishing.item.rodsterToga": "Slower Fish Speed",
     "guide.fishing.item.bambooRodBasic": "Best for Small Fish",
     "guide.fishing.item.bambooRodFine": "Best for Small Fish",
     "guide.fishing.item.bambooRodFlawless": "Best for Small Fish",
     "guide.fishing.item.bambooRodSuperior": "Best for Small Fish",
     "guide.fishing.item.carbonFiberRodFine": "Better for Large Fish",
     "guide.fishing.item.carbonFiberRodFlawless": "Better for Large Fish",
+    "guide.fishing.item.titaniumRodFlawless": "Best for Largest Fish",
     "guide.fishing.item.carbonFiberRodSuperior": "Better for Large Fish",
     "guide.fishing.item.titaniumRodSuperior": "Best for Largest Fish",
+    "guide.fishing.item.rodsterSandals": "Reel Drag Boost",
+    "guide.fishing.item.rodsterFishbasket": "Minimize Fish Runs",
   };
 
   const GUIDE_MINING_TIER_ORDER = [1, 2, 3, 4, 5];
@@ -1264,22 +1303,21 @@
       {
         nameKey: "guide.fishing.item.fisherWhistleOptional",
         level: 27,
-        altGroup: "mouth",
-        slotId: "mouth",
+        slotId: "masks",
         icon: "assets/Fisher_Whistle.webp",
       },
       {
         nameKey: "guide.fishing.item.fishingAmulet",
         level: 80,
         altGroup: "accessory",
-        slotId: "neck",
+        slotId: "accessories",
         icon: "assets/Fishing_Amulet.webp",
       },
       {
         nameKey: "guide.fishing.item.wormNecklace",
         level: 30,
         altGroup: "accessory",
-        slotId: "neck",
+        slotId: "accessories",
         icon: "assets/Worm_Necklace.webp",
       },
     ],
@@ -1294,11 +1332,6 @@
         noteKey: "guide.fishing.lureLabel",
         icon: "assets/Red_Glowing_Lure.webp",
       },
-      {
-        nameKey: "guide.fishing.lure.greenJerk",
-        noteKey: "guide.fishing.lureLabel",
-        icon: "assets/Green_Jerk.webp",
-      },
     ],
   };
 
@@ -1307,77 +1340,9 @@
   const GUIDE_FISHING_GEMS_BY_STAGE = {
     early: {
       titleKey: "guide.fishing.card.gemsEarly",
+      stageNoteKey: "guide.fishing.stageNote.earlyGems",
       badge: "E",
       badgeIcon: "assets/small-goldfish.webp",
-      items: [
-        {
-          nameKey: "guide.fishing.item.bambooRodFine",
-          level: 10,
-          altGroup: "rod",
-          slotId: "rod",
-          icon: "assets/Bamboo_Rod_Fine.webp",
-        },
-        {
-          nameKey: "guide.fishing.item.carbonFiberRodFine",
-          level: 20,
-          altGroup: "rod",
-          slotId: "rod",
-          icon: "assets/Carbon_Fiber_Rod_Fine.webp",
-        },
-        {
-          nameKey: "guide.fishing.item.seadogHat",
-          level: 7,
-          slotId: "hats",
-          icon: "assets/Seadog_Hat.webp",
-        },
-        {
-          nameKey: "guide.fishing.item.proFisherSuit",
-          level: 5,
-          altGroup: "suit",
-          slotId: "shirts",
-          icon: "assets/Pro_Fisher_Suit.webp",
-        },
-        {
-          nameKey: "guide.fishing.item.rodsterToga",
-          level: 19,
-          altGroup: "suit",
-          slotId: "shirts",
-          icon: "assets/Rodster_Toga.webp",
-        },
-        {
-          nameKey: "guide.fishing.item.fisherWhistleOptional",
-          level: 27,
-          slotId: "mouth",
-          icon: "assets/Fisher_Whistle.webp",
-        },
-      ],
-      lures: [
-        {
-          nameKey: "guide.fishing.lure.greenSmallMinnow",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Green_Small_Minnow.webp",
-        },
-        {
-          nameKey: "guide.fishing.lure.purpleTwirltailJig",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Purple_Twirltail_Jig.webp",
-        },
-        {
-          nameKey: "guide.fishing.lure.pinkSmallMinnow",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Pink_Small_Minnow.webp",
-        },
-        {
-          nameKey: "guide.fishing.lure.greenTwirltailJig",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Green_Twirltail_Jig.webp",
-        },
-      ],
-    },
-    mid: {
-      titleKey: "guide.fishing.card.gemsMid",
-      badge: "M",
-      badgeIcon: "assets/small-tuna.webp",
       items: [
         {
           nameKey: "guide.fishing.item.bambooRodFlawless",
@@ -1387,11 +1352,72 @@
           icon: "assets/Bamboo_Rod_Flawless.webp",
         },
         {
+          nameKey: "guide.fishing.item.seadogHat",
+          level: 7,
+          slotId: "hats",
+          icon: "assets/Seadog_Hat.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.rodsterToga",
+          level: 19,
+          slotId: "outfits",
+          icon: "assets/Rodster_Toga.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.fisherWhistle",
+          level: 27,
+          slotId: "masks",
+          icon: "assets/Fisher_Whistle.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.wormNecklace",
+          level: 30,
+          slotId: "accessories",
+          icon: "assets/Worm_Necklace.webp",
+        },
+      ],
+      lures: [
+        {
+          nameKey: "guide.fishing.lure.pinkSmallMinnow",
+          noteKey: "guide.fishing.lureNote.goldfish",
+          icon: "assets/Pink_Small_Minnow.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.greenTwirltailJig",
+          noteKey: "guide.fishing.lureNote.goldfish",
+          icon: "assets/Green_Twirltail_Jig.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.blackTungstenJig",
+          noteKey: "guide.fishing.lureNote.carp",
+          icon: "assets/Black_Tungsten_Jig.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.redTungstenJig",
+          noteKey: "guide.fishing.lureNote.halibut",
+          icon: "assets/Red_Tungsten_Jig.webp",
+        },
+      ],
+    },
+    mid: {
+      titleKey: "guide.fishing.card.gemsMid",
+      stageNoteKey: "guide.fishing.stageNote.tunaSideOption",
+      badge: "M",
+      badgeIcon: "assets/medium-carp.webp",
+      items: [
+        {
           nameKey: "guide.fishing.item.carbonFiberRodFlawless",
           level: 45,
-          altGroup: "rod",
+          altGroup: "rodMidFlawless",
           slotId: "rod",
           icon: "assets/Carbon_Fiber_Rod_Flawless.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.titaniumRodFlawless",
+          level: 50,
+          altGroup: "rodMidFlawless",
+          slotId: "rod",
+          icon: "assets/Titanium_Rod_Flawless.png",
         },
         {
           nameKey: "guide.fishing.item.seadogHat",
@@ -1400,61 +1426,59 @@
           icon: "assets/Seadog_Hat.webp",
         },
         {
-          nameKey: "guide.fishing.item.proFisherSuit",
-          level: 5,
-          altGroup: "suit",
-          slotId: "shirts",
-          icon: "assets/Pro_Fisher_Suit.webp",
-        },
-        {
           nameKey: "guide.fishing.item.rodsterToga",
           level: 19,
-          altGroup: "suit",
-          slotId: "shirts",
+          slotId: "outfits",
           icon: "assets/Rodster_Toga.webp",
         },
         {
           nameKey: "guide.fishing.item.fisherWhistle",
           level: 27,
-          slotId: "mouth",
+          slotId: "masks",
           icon: "assets/Fisher_Whistle.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.wormNecklace",
+          level: 30,
+          slotId: "accessories",
+          icon: "assets/Worm_Necklace.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.rodsterSandals",
+          level: 63,
+          slotId: "shoes",
+          icon: "assets/Rodster_Sandals.png",
         },
       ],
       lures: [
         {
+          nameKey: "guide.fishing.lure.blackTungstenJig",
+          noteKey: "guide.fishing.lureNote.carp",
+          icon: "assets/Black_Tungsten_Jig.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.yellowFly",
+          noteKey: "guide.fishing.lureNote.carp",
+          icon: "assets/Yellow_Fly.webp",
+        },
+        {
           nameKey: "guide.fishing.lure.redTungstenJig",
-          noteKey: "guide.fishing.lureLabel",
+          noteKey: "guide.fishing.lureNote.halibut",
           icon: "assets/Red_Tungsten_Jig.webp",
         },
         {
           nameKey: "guide.fishing.lure.redFly",
-          noteKey: "guide.fishing.lureLabel",
+          noteKey: "guide.fishing.lureNote.halibut",
           icon: "assets/Red_Fly.webp",
-        },
-        {
-          nameKey: "guide.fishing.lure.stripedSpoon",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Striped_Spoon.webp",
-        },
-        {
-          nameKey: "guide.fishing.lure.redJerk",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Red_Jerk.webp",
         },
       ],
     },
     late: {
       titleKey: "guide.fishing.card.gemsLate",
+      stageNoteKey: "guide.fishing.stageNote.tunaSideOption",
       badge: "L",
-      badgeIcon: "assets/small-seaangler.webp",
+      badgeIcon: "assets/medium-halibut.webp",
       items: [
-        {
-          nameKey: "guide.fishing.item.bambooRodSuperior",
-          level: 60,
-          slotId: "rod",
-          icon: "assets/Bamboo_Rod_Superior.webp",
-          extraNoteKey: "guide.fishing.note.bambooBudget",
-        },
         {
           nameKey: "guide.fishing.item.carbonFiberRodSuperior",
           level: 75,
@@ -1476,80 +1500,60 @@
           icon: "assets/Seadog_Hat.webp",
         },
         {
-          nameKey: "guide.fishing.item.fishingAmulet",
-          level: 80,
-          altGroup: "accessory",
-          slotId: "neck",
-          icon: "assets/Fishing_Amulet.webp",
-        },
-        {
-          nameKey: "guide.fishing.item.wormNecklace",
-          level: 30,
-          altGroup: "accessory",
-          slotId: "neck",
-          icon: "assets/Worm_Necklace.webp",
-        },
-        {
           nameKey: "guide.fishing.item.proFisherSuit",
           level: 5,
-          altGroup: "suit",
-          slotId: "shirts",
+          slotId: "outfits",
           icon: "assets/Pro_Fisher_Suit.webp",
-        },
-        {
-          nameKey: "guide.fishing.item.rodsterToga",
-          level: 19,
-          altGroup: "suit",
-          slotId: "shirts",
-          icon: "assets/Rodster_Toga.webp",
         },
         {
           nameKey: "guide.fishing.item.fisherWhistle",
           level: 27,
-          slotId: "mouth",
+          slotId: "masks",
           icon: "assets/Fisher_Whistle.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.fishingAmulet",
+          level: 80,
+          slotId: "accessories",
+          icon: "assets/Fishing_Amulet.webp",
+        },
+        {
+          nameKey: "guide.fishing.item.rodsterFishbasket",
+          level: 79,
+          slotId: "backItems",
+          icon: "assets/Rodster_Fishbasket.png",
         },
       ],
       lures: [
         {
-          nameKey: "guide.fishing.lure.redFly",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Red_Fly.webp",
-        },
-        {
-          nameKey: "guide.fishing.lure.silverLongMinnow",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Silver_Long_Minnow.webp",
-        },
-        {
-          nameKey: "guide.fishing.lure.redJerk",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Red_Jerk.webp",
-        },
-        {
-          nameKey: "guide.fishing.lure.greenGlowingLure",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Green_Glowing_Lure.webp",
+          nameKey: "guide.fishing.lure.blackTungstenJig",
+          noteKey: "guide.fishing.lureNote.carp",
+          icon: "assets/Black_Tungsten_Jig.webp",
         },
         {
           nameKey: "guide.fishing.lure.yellowFly",
-          noteKey: "guide.fishing.lureLabel",
+          noteKey: "guide.fishing.lureNote.carp",
           icon: "assets/Yellow_Fly.webp",
         },
         {
           nameKey: "guide.fishing.lure.greenSpinner",
-          noteKey: "guide.fishing.lureLabel",
+          noteKey: "guide.fishing.lureNote.carp",
           icon: "assets/Green_Spinner.webp",
         },
         {
-          nameKey: "guide.fishing.lure.greenJerk",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Green_Jerk.webp",
+          nameKey: "guide.fishing.lure.redTungstenJig",
+          noteKey: "guide.fishing.lureNote.halibut",
+          icon: "assets/Red_Tungsten_Jig.webp",
         },
         {
-          nameKey: "guide.fishing.lure.blueLongMinnow",
-          noteKey: "guide.fishing.lureLabel",
-          icon: "assets/Blue_Long_Minnow.webp",
+          nameKey: "guide.fishing.lure.redFly",
+          noteKey: "guide.fishing.lureNote.halibut",
+          icon: "assets/Red_Fly.webp",
+        },
+        {
+          nameKey: "guide.fishing.lure.silverLongMinnow",
+          noteKey: "guide.fishing.lureNote.halibut",
+          icon: "assets/Silver_Long_Minnow.webp",
         },
       ],
     },
@@ -1560,11 +1564,14 @@
     hats: "guide.nether.slot.hats",
     masks: "guide.nether.slot.masks",
     mouth: "guide.nether.slot.mouth",
+    outfits: "guide.nether.slot.outfits",
+    accessories: "guide.nether.slot.accessories",
     shirts: "guide.nether.slot.shirts",
     pants: "guide.nether.slot.pants",
     wings: "guide.nether.slot.wings",
     tails: "guide.nether.slot.tails",
     neck: "guide.nether.slot.neck",
+    backItems: "guide.nether.slot.backItems",
     shoes: "guide.nether.slot.shoes",
     gloves: "guide.nether.slot.gloves",
     weapon: "guide.nether.slot.weapon",
@@ -2445,6 +2452,14 @@
       lureTitle.textContent = t("guide.fishing.lureTitle");
       list.appendChild(lureTitle);
       renderItemRows(list, cfg.lures, accent);
+    }
+
+    if (cfg.stageNoteKey) {
+      const stageNote = document.createElement("p");
+      stageNote.className = "guide-fishing-stage-note";
+      stageNote.setAttribute("data-i18n", cfg.stageNoteKey);
+      stageNote.textContent = t(cfg.stageNoteKey);
+      list.appendChild(stageNote);
     }
 
     attachTierDropdown(head, list, false, scopeEl);
