@@ -8,7 +8,8 @@
   const fishingRoot = document.getElementById("guide-fishing-root");
   const farmingRoot = document.getElementById("guide-farming-root");
   const massingRoot = document.getElementById("guide-massing-root");
-  if (!netherRoot && !miningRoot && !fishingRoot && !farmingRoot && !massingRoot)
+  const puzzleRoot = document.getElementById("guide-puzzle-root");
+  if (!netherRoot && !miningRoot && !fishingRoot && !farmingRoot && !massingRoot && !puzzleRoot)
     return;
 
   function t(key, vars) {
@@ -2662,6 +2663,14 @@
     );
   }
 
+  function renderGuidePuzzle() {
+    if (!puzzleRoot) return;
+    puzzleRoot.innerHTML = "";
+    if (typeof window.PW_FossilPuzzle !== "undefined") {
+      window.PW_FossilPuzzle.mount(puzzleRoot);
+    }
+  }
+
   function renderGuideComingSoon(root) {
     if (!root) return;
     root.innerHTML = "";
@@ -2680,6 +2689,7 @@
     // renderGuideMassing();
     renderGuideComingSoon(farmingRoot);
     renderGuideComingSoon(massingRoot);
+    renderGuidePuzzle();
     if (typeof PWI18N !== "undefined") PWI18N.applyI18n();
   }
 
